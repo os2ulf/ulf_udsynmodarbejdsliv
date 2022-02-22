@@ -1,0 +1,120 @@
+/**
+ *
+ * Search module.
+ *
+ * Contains styles related to search widget and search results.
+ *
+ */
+
+
+/* Styles
+================================================================================================================== */
+
+.search {
+
+  &--filter-wrapper--wide {
+    width: 100%;
+    padding-bottom: 2px;
+    .search--filter-search-text[type="text"] {
+      @include breakpoint(650px) {
+        max-width: 86%;
+      }
+    }
+  }
+
+  &--widget {
+
+    .search--filter-dropdown-header {
+      padding: 20px 0 16px;
+    }
+
+    &.is-users {
+      &,
+      .search--filter-dropdown,
+      .search--filter-wrapper-user,
+      .search--filter-dropdown-submit,
+      .search--widget-selected,
+      .search--filter-search-submit {
+        @include background-set-color('blue', 1);
+        border-color: $blue;
+      }
+      .search--filter-wrapper-inner,
+      .search--filter-dropdown-inner,
+      .search--widget-extras {
+        background: $light-gray;
+      }
+    }
+
+    &.is-internship,
+    &.is-education {
+      &,
+      .search--filter-dropdown,
+      .search--filter-wrapper-user,
+      .search--filter-dropdown-submit,
+      .search--widget-selected,
+      .search--filter-search-submit {
+        @include background-set-color('coral', 1);
+        border-color: $coral;
+      }
+      .search--filter-wrapper-inner,
+      .search--filter-dropdown-inner,
+      .search--widget-extras {
+          background: $light-gray;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .visible-md {
+      display: none;
+      @include breakpoint(650px) {
+        display: block;
+      }
+      @include breakpoint(1000px) {
+        display: none;
+      }
+    }
+    .visible-lg {
+      display: none;
+      @include breakpoint(1000px) {
+        display: block;
+      }
+    }
+
+    #field_competencies {
+      .disabled {
+        display: none;
+      }
+    }
+  }
+
+  &-results {
+    &--result {
+      &.is-internship,
+      &.is-education {
+        border-bottom: 6px solid $coral;
+        .ribbon {
+          @include background-set-color('blue', 1);
+
+          a,
+          a:hover {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
+      &.is-company {
+        figure {
+          padding: 15px;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+

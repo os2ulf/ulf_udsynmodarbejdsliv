@@ -1,0 +1,43 @@
+/**
+ * Variables
+ *
+ * Theme specific variables
+ *
+ */
+
+
+/* Colors
+   ================================================================================================================== */
+$white:            #fff;
+$black:            #000;
+
+$gray:             lighten($black, 20%);
+$light-gray: #e6e6e6;
+
+$coral:            #f1564d;
+$blue:             #5d97d1;
+$light-blue:       #cae1f7;
+$light-coral:      #fee6e4;
+$dark-coral:       #bf0d03;
+$dark-blue:        #2c649c;
+$footer-color:     $coral;
+$block-dark:       $blue;
+$block-light:      $light-blue;
+$link-color:       $blue;
+$link-color-hover: darken($link-color, 10%);
+
+
+/* Typography
+   ================================================================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+$header-font: "Muli", sans-serif;
+$body-font: 'Lato', sans-serif;
+$font: $body-font;
+
+
+/* Boxlist
+   ================================================================================================================== */
+$boxlist-font-color:    $gray;
+$boxlist-border-color:  $blue;
+$boxlist-padding:       1em;

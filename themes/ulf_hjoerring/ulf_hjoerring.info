@@ -1,0 +1,10 @@
+name = Ulf Hjoerring
+version = VERSION
+core = 7.x
+base theme = ulf_default
+
+stylesheets[all][] = css/jquery.mmenu.css
+stylesheets[all][] = css/jquery.mmenu.positioning.css
+stylesheets[all][] = css/ulf-styles-hjoerring.css
+scripts[] = js/jquery.mmenu.min.js
+scripts[] = js/ulf-hjoerring-scripts.js

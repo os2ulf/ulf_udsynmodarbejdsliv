@@ -1,0 +1,512 @@
+/**
+ * Overrides
+ *
+ * Theme specific overrides
+ *
+ */
+
+/* Default file: base/_base.scss
+================================================================================================================== */
+body {
+  background: $coral;
+  color: $gray;
+}
+
+
+a {
+  &:link {
+    color: $link-color;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: darken($link-color, 5%);
+  }
+
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: none;
+  }
+
+  &:focus {
+    color: darken($link-color, 10%);
+  }
+}
+
+/* Fonts
+================================================================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font;
+}
+
+body {
+  font-family: $body-font;
+}
+
+/* Default file: modules/_footer.scss
+================================================================================================================== */
+
+.footer {
+  background: $footer-color;
+  color: $white;
+
+  // Content elements in footer is editable by editors. We set some defaults.
+  hr {
+    border-color: $white;
+  }
+
+  a {
+    @include strip-link-styles($white, underline);
+  }
+}
+
+/* Default file: modules/_header.scss
+================================================================================================================== */
+
+.header {
+  background: $coral;
+
+  &--logo {
+    max-width: 8em;
+  }
+}
+
+
+/* Default file: modules/_block.scss
+================================================================================================================== */
+
+.block--dark {
+  background: $block-dark;
+  color: $white;
+
+  &.coral {
+    background: $coral;
+  }
+
+  a {
+    @include strip-link-styles($white, underline);
+  }
+}
+
+.block--light {
+  background: $light-gray;
+
+  &.coral {
+    background: $light-gray;
+  }
+
+  a {
+    @include strip-link-styles($link-color, underline);
+  }
+}
+
+.block--pdf,
+.block--signup {
+  &-link {
+    @extend %button;
+    @include strip-link-styles($white);
+  }
+}
+
+.is-internship,
+.is-education {
+  .block--pdf,
+  .block--signup {
+    &-link {
+      background: $coral;
+      border: $dark-coral;
+    }
+  }
+}
+
+.block--newsletter.is-front .form-type-emailfield {
+  & > input {
+    margin-bottom: $boxlist-padding;
+  }
+}
+
+/* Default file: modules/_field.scss
+================================================================================================================== */
+.field {
+  /* Display of node title. */
+  &--title {
+    @include background-set-color('white', 0.7);
+    border-color: $dark-blue;
+
+    &.is-profile {
+      border-color: $link-color;
+    }
+
+    &.is-internship {
+      border-color: $coral;
+    }
+
+    &.is-education {
+      border-color: $coral;
+    }
+  }
+
+  &--collection-label {
+    color: $white;
+    background: $link-color;
+  }
+}
+
+.is-internship,
+.is-education {
+  .field--collection-label {
+    background: $coral;
+  }
+}
+
+/* Footer */
+.footer--after {
+  background: none;
+}
+
+/* Default file: modules/_paragraphs.scss
+================================================================================================================== */
+
+.entity-paragraphs-item {
+  .btn {
+    @extend %button;
+    @include strip-link-styles($white);
+  }
+}
+
+.page-nyheder {
+  .block--newsletter {
+    &-inner {
+      margin: 0 0 1em 0;
+    }
+
+    .form-item {
+      padding: 1em 0 0 0;
+
+      &:first-child {
+        padding: 0;
+      }
+
+      label {
+        margin-bottom: 0.75em;
+        display: block;
+      }
+    }
+  }
+
+  .mailchimp-signup-subscribe-form {
+    padding: 0 1em;
+    box-sizing: border-box;
+
+  }
+}
+
+a:focus {
+  outline: none;
+}
+
+.header {
+  z-index: 100;
+}
+.header--inner {
+
+  #menu-trigger {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: top .3s ease;
+    display: block;
+    @include breakpoint(1000px) {
+      display: none;
+    }
+    span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      top: 21px;
+      left: 15px;
+      transition: all .3s ease;
+
+      &:nth-child(2){
+        top: 28px;
+      }
+
+      &:nth-child(3){
+        top: 35px;
+      }
+    }
+  }
+}
+.header--nav-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 130px;
+  right: 0;
+  height: 40px;
+  transform: translateY(-50%);
+  display: none;
+  @include breakpoint(1000px) {
+    display: block;
+  }
+}
+html.mm-opened{
+  #menu-trigger{
+    span{
+      &:nth-child(1){
+        top: 28px;
+        transform: rotate(-45deg);
+      }
+      &:nth-child(2){
+        top: 28px;
+        opacity: 0;
+      }
+      &:nth-child(3){
+        top: 28px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+.mm-menu {
+  background: #002c40;
+  .nav--list-dropdown-item.expanded,
+  .nav--list-item.expanded {
+    padding-right: 0;
+    &:after {
+      background: none;
+    }
+  }
+  .nav--list-item-sub {
+    border-bottom: 0;
+    &:hover {
+      background-color: #666;
+    }
+    a {
+      color: #fff;
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  .mm-subtitle,
+  a.mm-subclose {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .nav--sub {
+    border: none;
+  }
+}
+@include breakpoint(1000px) {
+  .nav .nav--static-pages {
+    min-width: 190px;
+  }
+  .nav--sub {
+    right: auto;
+    left: 0;
+
+    .nav--sub {
+      top: 5px;
+      left: 95%;
+    }
+  }
+}
+.header--logo {
+  display: block;
+  left: 20px;
+  img {
+    width: 60px;
+    height: auto;
+  }
+  @include breakpoint(720px) {
+    img {
+      width: auto;
+    }
+  }
+  @include breakpoint(1000px) {
+    left: 0;
+  }
+}
+.nav {
+  background: none;
+  display: block;
+  .nav--inner {
+
+    .nav--list-item {
+      vertical-align: middle;
+
+      &.expanded {
+        > a {
+          padding-right: 5px;
+        }
+      }
+
+      .nav--sub {
+        background: none;
+        border: none;
+      }
+
+      ul {
+        background: $coral;
+        box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.5);
+        padding: 5px 0;
+        li {
+          padding: 0;
+          text-align: left;
+          position: relative;
+          a {
+            padding: 12px 15px;
+            color: #fff;
+            &:hover {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+      &.active-trail,
+      &:hover {
+        background-color: transparent;
+
+        ul {
+          visibility: visible;
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+    .nav--list-item-sub {
+      border-bottom: 0 solid #d9d9d9;
+      margin: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        height: 1px;
+        background: #002C40;
+      }
+
+      &.last::after {
+        display: none;
+      }
+    }
+  }
+}
+.search--filters {
+  &.sticky {
+    position: relative;
+    top: auto;
+    @include breakpoint(720px) {
+      position: fixed;
+      top: 0;
+    }
+  }
+  .search--widget {
+    margin-bottom: 0;
+  }
+}
+.search--results {
+  padding-top: 16px;
+}
+.page-erhvervspraktik,
+.page-udbydere,
+.page-nyheder,
+ .page-uddannelse-og-job {
+
+  .page--wrapper {
+    background: #DBDAD0;
+    .pagination a:link, .pagination a:visited, .pagination a:focus, .pagination span {
+      background-color: $coral;
+      color: #fff;
+    }
+    .pagination a:hover,
+    .pagination .pager .pager-current, .pagination .pager .active, .pagination .pager-current, .pagination .active {
+      background-color: $dark-coral;
+      a, span {
+        background-color: $dark-coral;
+      }
+    }
+  }
+}
+
+.search-results--result {
+  background: #fff;
+}
+
+#comments {
+  margin-top: 0;
+}
+
+.comment-wrapper {
+  padding: 30px 0;
+
+  .field--collection-label {
+    background: $coral;
+  }
+}
+
+html.js {
+  .comment-form--trigger {
+    background: #fff;
+    color: $coral;
+    border-color: $coral;
+    border-radius: 0;
+
+    &:hover {
+      background: $coral;
+      color: #fff;
+    }
+
+    span.active {
+      display: none;
+    }
+  }
+
+  .comment-form {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+
+    &.expanded {
+      max-height: 2000px;
+    }
+  }
+}
+
+.newsletter-node {
+  .content--main {
+    width: 100%;
+
+    .block--newsletter-inner {
+      border: none;
+
+      .block--newsletter-header {
+        padding: 0;
+        margin-bottom: 15px;
+      }
+
+      .mailchimp-signup-subscribe-form .mailchimp-newsletter-mergefields {
+        padding-bottom: 5px;
+      }
+
+      .form-item {
+        margin-bottom: 10px;
+
+        label {
+          margin-bottom: 5px;
+          display: block;
+        }
+      }
+    }
+  }
+}

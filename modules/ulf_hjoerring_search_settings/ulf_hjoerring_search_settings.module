@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Code for the Ulf Hjørring feature.
+ */
+
+include_once 'ulf_hjoerring_search_settings.features.inc';
+
+
+/**
+ * Implements hook_default_search_api_index_alter().
+ *
+ * Change the default search api index from features/ulf_search_settings
+ */
+function ulf_hjoerring_search_settings_default_search_api_index_alter(array &$defaults) {
+
+  if(isset($defaults['courses'])) {
+    $defaults['courses']->options['search_node_indexes'] = variable_get('search_api_search_node_index_courses', '');
+    $defaults['courses']->enabled = 0;
+  }
+  if(isset($defaults['educators'])) {
+    $defaults['educators']->options['search_node_indexes'] = variable_get('search_api_search_node_index_educators', '');
+    $defaults['educators']->enabled = 0;
+  }
+  if(isset($defaults['users'])) {
+    $defaults['users']->options['search_node_indexes'] = variable_get('search_api_search_node_index_users', '');
+    $defaults['users']->enabled = 0;
+  }
+  if(isset($defaults['companies'])) {
+    $defaults['companies']->options['search_node_indexes'] = variable_get('search_api_search_node_index_companies', '');
+    // Change search filter role for user index. Role ID for aarhus differs from other sites.
+    $role = user_role_load_by_name('company');
+    $defaults['companies']->options['data_alter_callbacks']['search_api_alter_role_filter']['settings']['roles'] = [$role->rid => $role->rid];
+  }
+  if(isset($defaults['educations'])) {
+    $defaults['educations']->options['search_node_indexes'] = variable_get('search_api_search_node_index_educations', '');
+  }
+  if(isset($defaults['internships'])) {
+    $defaults['internships']->options['search_node_indexes'] = variable_get('search_api_search_node_index_internships', '');
+  }
+}
+
+function ulf_hjoerring_search_settings_default_page_manager_pages_alter(&$pages) {
+  if(isset($pages['search_courses'])) {
+    $pages['search_courses']->disabled = true;
+  }
+  if(isset($pages['search_day_care'])) {
+    $pages['search_day_care']->disabled = true;
+  }
+  if(isset($pages['search_elementary_school'])) {
+    $pages['search_elementary_school']->disabled = true;
+  }
+  if(isset($pages['search_users'])) {
+    $pages['search_users']->disabled = true;
+  }
+  if(isset($pages['search_youth'])) {
+    $pages['search_youth']->disabled = true;
+  }
+//  kint($pages);die;
+}

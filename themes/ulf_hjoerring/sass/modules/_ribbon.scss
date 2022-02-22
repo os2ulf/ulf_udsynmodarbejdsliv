@@ -1,0 +1,58 @@
+/**
+ *
+ * Ribbon module.
+ *
+ * http://simonwhitaker.github.io/ribbon-css/
+ * Slightly modified for ulf
+ *
+ */
+
+/* Styles
+================================================================================================================== */
+
+
+.is-internship,
+.is-education {
+  .ribbon {
+    @include background-set-color('blue', 1);
+  }
+}
+.is-users {
+  .ribbon {
+    @include background-set-color('blue', 1);
+  }
+}
+
+
+.ribbon .ribbon--education,
+.ribbon .ribbon--internship,
+.ribbon a,
+.ribbon a:hover {
+  /* Set the text properties */
+  color: $white;
+  text-decoration: none;
+  text-align: center;
+
+  /* Set the geometry. If you fiddle with these you'll also need
+     to tweak the top and right values in .ribbon. */
+  width: 200px;
+  line-height: 20px;
+
+  /* Set the layout properties */
+  display: inline-block;
+  padding: 2px 0;
+
+  /* Add "stitching" effect */
+  border-width: 1px 0;
+  border-style: dotted;
+  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+
+  &.is-content {
+    line-height: 32px;
+    width: 300px;
+  }
+}
+
+
+

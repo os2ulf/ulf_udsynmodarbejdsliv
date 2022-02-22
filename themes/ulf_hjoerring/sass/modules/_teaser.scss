@@ -1,0 +1,43 @@
+/**
+ *
+ * Teaser module.
+ *
+ * Display of list items (Ie. Frontpage and search results.)
+ *
+ */
+
+/* Styles.
+================================================================================================================== */
+
+
+.teaser {
+  &.is-internship,
+  &.is-education {
+    border-bottom: 6px solid $coral;
+    .ribbon {
+      @include background-set-color('blue', 1);
+      color: $white;
+
+      a,
+      a:hover {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
+  &--type-read-more {
+    a {
+      background-image: url("../images/arrow-right-icon.svg");
+    }
+  }
+  &--list-button {
+    @extend %button;
+
+    //&:link {
+    //  background-color: $dark-blue;
+    //  border-color: $dark-blue;
+    //  color: $white;
+    //  text-decoration: none;
+    //}
+  }
+}

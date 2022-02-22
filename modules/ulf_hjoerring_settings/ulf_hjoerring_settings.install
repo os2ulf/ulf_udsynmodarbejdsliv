@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * Populate ife database table.
+ */
+function ulf_hjoerring_settings_update_7001(&$sandbox) {
+  db_insert('ife')
+    ->fields(array(
+      'form_id' => 'internship_node_form',
+      'field_types' => NULL,
+      'status' => 1,
+      'display' => 0,
+    ))->execute();
+  db_insert('ife')
+    ->fields(array(
+      'form_id' => 'education_node_form',
+      'field_types' => NULL,
+      'status' => 1,
+      'display' => 0,
+    ))->execute();
+}
+
+/**
+ * Add captcha to request form.
+ */
+function ulf_hjoerring_settings_update_7002 () {
+
+  $types = db_select('entityform_type', 'e')
+    ->fields('e', array('type'))
+    ->execute()
+    ->fetchCol();
+
+  foreach ($types as $type) {
+    try {
+      db_insert('captcha_points')
+        ->fields(array(
+          'form_id' => $type.'_entityform_edit_form',
+          'captcha_type' => 'default',
+        ))
+        ->execute();
+    } catch (Exception $e) {
+      //if they are already added, the query will fail
+      //we do nothing
+    }
+  }
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function ulf_hjoerring_settings_update_7003(&$sandbox)
+{
+  $module_enable = array(
+    'sharedemail',
+  );
+  module_enable($module_enable);
+  cache_clear_all();
+}
+
+/**
+ * Automatically set signup link.
+ */
+function ulf_hjoerring_settings_update_7004(&$sandbox) {
+  $query = db_select('node', 'n');
+  $query->fields('n',['nid'])
+    ->condition('n.type', 'internship')
+    ->leftJoin('field_data_field_signup_show_link', 'l', 'n.nid = l.entity_id');
+  $query->isNull('l.field_signup_show_link_value');
+  $result = $query->execute()->fetchAllKeyed(0,0);
+
+  if (isset($result)) {
+    $nodes = node_load_multiple($result);
+    foreach ($nodes as $node) {
+      $node->field_signup_show_link[LANGUAGE_NONE][0]['value'] = 1;
+      node_save($node);
+    }
+  }
+}

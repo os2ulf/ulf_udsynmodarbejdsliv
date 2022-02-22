@@ -1,0 +1,246 @@
+<?php
+
+/**
+ * @file
+ * Code for the Ulf Hjørring feature.
+ */
+
+include_once 'ulf_hjoerring_settings.features.inc';
+
+
+/**
+ * Add new role.
+ *
+ * @return array
+ *   An array defining a role
+ */
+function ulf_hjoerring_settings_secure_permissions_roles() {
+  return array(
+    'company consultant',
+    'company',
+  );
+}
+
+/**
+ * Implements hook_secure_permissions().
+ */
+function ulf_hjoerring_settings_secure_permissions($role) {
+  $permissions = [];
+  if($role == 'company consultant') {
+    // by default company consultants have the same permissions as editors, with a few alterations
+    $permissions = [
+      'assign company consultant role',
+      'assign company role',
+      'create news_course_provider content',
+      'create internship content',
+      'edit any internship content',
+      'edit own internship content',
+      'create education content',
+      'edit any education content',
+      'edit own education content',
+    ];
+
+    $modules = module_implements('secure_permissions');
+    foreach ($modules as $module) {
+      $function = $module.'_secure_permissions';
+      $add_permissions = $function('editor');
+      if($add_permissions) {
+        $permissions = array_merge($permissions, $add_permissions);
+      }
+    }
+
+    $remove = [
+      'assign editor role',
+      'assign course provider role',
+      'create course content',
+      'edit any course content',
+      'edit own course content',
+      'create course_educators content',
+      'edit any course_educators content',
+      'edit own course_educators content',
+    ];
+    $permissions = array_diff($permissions, $remove);
+  }
+
+  if($role == 'company') {
+    // companies should never actually log in, so their permissions doesn't matter
+    $permissions = [];
+  }
+
+  return $permissions;
+}
+
+/**
+ * Implements hook_menu_alter().
+ *
+ * Takes over the access callback for user profiles.
+ */
+function ulf_hjoerring_settings_menu_alter(&$items) {
+  $items['user/%user']['access callback'] = 'ulf_hjoerring_settings_access';
+}
+
+/**
+ * Access callback for user profiles.
+ */
+function ulf_hjoerring_settings_access($account = NULL) {
+  global $user;
+  if (!isset($account)) {
+    $account = $user;
+  }
+
+  if(in_array('company', $account->roles)) {
+    return TRUE;
+  } else {
+    return user_view_access($account);
+  }
+}
+
+/**
+ * Implements hook_user_presave().
+ */
+function ulf_hjoerring_settings_user_presave(&$edit, $account, $category)
+{
+  if($edit['status'] == 1) {
+    $role = user_role_load_by_name('company');
+    if(isset($edit['roles'][$role->rid]) && $edit['roles'][$role->rid] != 0) {
+      $edit['status'] = 0;
+    }
+  }
+}
+
+/**
+ * Implements hook_field_default_field_bases_alter().
+ */
+
+function ulf_hjoerring_settings_field_default_field_bases_alter(&$fields)
+{
+  if(isset($fields['field_message_parent_node'])) {
+    $fields['field_message_parent_node']['settings']['handler_settings']['target_bundles']['internship'] = 'internship';
+    $fields['field_message_parent_node']['settings']['handler_settings']['target_bundles']['education'] = 'education';
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function ulf_hjoerring_settings_form_alter(&$form, &$form_state, $form_id)
+{
+  if($form_id == 'internship_node_form' || $form_id == 'education_node_form') {
+    $node = $form_state['node'];
+    $form['company'] = $form['author'];
+    unset($form['company']['date']);
+    unset($form['author']['name']);
+    $form['author']['#attributes']['class'] = [];
+    $form['author']['#title'] = 'Oprettelsesdato';
+    if(!isset($node->nid) || isset($node->is_new)) {
+      $form['company']['name']['#default_value'] = '';
+    }
+    $form['company']['name']['#description'] = '';
+    $form['company']['name']['#required'] = true;
+    $form['company']['name']['#title'] = 'Udbyder';
+    $form['company']['#attributes']['class'] = [];
+    $form['company']['#weight'] = -9;
+    $form['company']['#group'] = null;
+    $form['company']['#collapsed'] = false;
+    $form['company']['#title'] = 'Udbyder';
+
+    $form['field_period']['#states'] = [
+      'invisible' => [
+        ':input[name="field_period_full_year[und]"]' => ['checked' => true],
+      ],
+    ];
+
+
+    if($form_id == 'education_node_form') {
+      $form['field_subjects_primary_school'][LANGUAGE_NONE]['#ajax'] = [
+        'callback' => 'dynamically_change_competencies_options',
+        'wrapper' => 'competencies-wrapper',
+        'method' => 'replace',
+        'effect' => 'fade',
+      ];
+      $form['field_competencies']['und']['#prefix'] = '<div id="competencies-wrapper">';
+      $form['field_competencies']['und']['#suffix'] = '</div>';
+
+      if(isset($form_state['values'])) {
+        //ajax request
+        $subjects = array_column($form_state['values']['field_subjects_primary_school']['und'], 'tid');
+        if($subjects[0] === null) {
+          $subjects = [];
+        }
+      } else if(!isset($node->nid) || isset($node->is_new)) {
+        //creating new node
+        $subjects = [];
+      } else {
+        //editing existing node
+        $subjects = [];
+        if(isset($node->field_subjects_primary_school['und'])) {
+          $subjects = array_column($node->field_subjects_primary_school['und'], 'tid');
+        }
+      }
+
+      $subject_options = $form['field_subjects_primary_school'][LANGUAGE_NONE]['#options'];
+      $taxonomy_tree = taxonomy_get_tree(taxonomy_vocabulary_machine_name_load('competencies')->vid, 0, null, true);
+      $competencies_options = [];
+      foreach ($taxonomy_tree as $term) {
+        if(in_array($term->field_parent_subject['und'][0]['tid'], $subjects)) {
+          $competencies_options[$term->tid] = $subject_options[$term->field_parent_subject['und'][0]['tid']].' - '.$term->name;
+        }
+      }
+
+      $form['field_competencies']['und']['#options'] = $competencies_options;
+      if(!$competencies_options) {
+        $form['field_competencies']['und']['#description'] = 'Vælg først fag';
+      }
+
+    }
+  }
+
+  if($form_id == 'taxonomy_overview_terms') {
+    if($form['#vocabulary']->machine_name == 'competencies') {
+      //adding parent subject names to term name om competencies vocabulary overview
+      $competencies_map = [];
+      foreach (taxonomy_get_tree($form['#vocabulary']->vid, 0, null, true) as $competency) {
+        $competencies_map[$competency->tid] = $competency->field_parent_subject[LANGUAGE_NONE][0]['tid'];
+      }
+      $subjects = [];
+      foreach (taxonomy_get_tree(taxonomy_vocabulary_machine_name_load('subjects_primary_school')->vid, 0, null, false) as $subject) {
+        $subjects[$subject->tid] = $subject->name;
+      }
+      foreach ($form as $key => $value) {
+        if(strpos($key, 'tid:') === 0 && isset($value['tid'])) {
+          if(isset($competencies_map[$value['tid']['#value']]) && isset($subjects[$competencies_map[$value['tid']['#value']]])) {
+            $form[$key]['view']['#title'] = $subjects[$competencies_map[$value['tid']['#value']]].' - '.$form[$key]['view']['#title'];
+          }
+        }
+      }
+    }
+  }
+}
+
+function dynamically_change_competencies_options($form, $form_state) {
+  return $form['field_competencies'];
+}
+
+function ulf_hjoerring_settings_views_default_views_alter(&$views) {
+  if(isset($views['ulf_workbench_edits_by_user'])) {
+    $view = $views['ulf_workbench_edits_by_user'];
+    foreach ($view->display as $id => $display) {
+      if($filter = $view->get_item($id, 'filter', 'type')) {
+        $filter['value']['internship'] = 'internship';
+        $filter['value']['education'] = 'education';
+        $view->set_item($id, 'filter', 'type', $filter);
+      }
+    }
+  }
+  if(isset($views['ulf_frontpage_promoted_courses'])) {
+    $view = $views['ulf_frontpage_promoted_courses'];
+    foreach ($view->display as $id => $display) {
+      if($filter = $view->get_item($id, 'filter', 'type')) {
+        $filter['value']['internship'] = 'internship';
+        $filter['value']['education'] = 'education';
+        $view->set_item($id, 'filter', 'type', $filter);
+      }
+    }
+  }
+}

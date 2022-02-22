@@ -1,0 +1,238 @@
+/**
+ *
+ * Font definitions
+ *
+ * Should contain definitions for all font-families used on the site
+ *
+ */
+
+/* Fetch default print styles */
+@import url("../../../../../profiles/ulf/themes/ulf_default/css/custom-styles.css");
+
+@font-face {
+    font-family: 'Asap';
+    src: url("/profiles/ulf/themes/ulf_default/fonts/Asap-Regular.ttf");
+    /* Pretty Modern Browsers */ }
+@font-face {
+    font-family: 'Asap';
+    src: url("/profiles/ulf/themes/ulf_default/fonts/fonts/Asap-Bold.ttf");
+    /* Pretty Modern Browsers */
+    font-weight: bold; }
+@font-face {
+    font-family: 'Asap';
+    src: url("/profiles/ulf/themes/ulf_default/fonts/fonts/Asap-Italic.ttf");
+    /* Pretty Modern Browsers */
+    font-style: italic; }
+
+body {
+    background: white;
+    width: 700px;
+    color: #3f3f3f;
+    font-family: sans-serif;
+    font-size: 14px;
+    box-shadow: none;
+    text-shadow: none;
+    position: relative;
+}
+
+/* Logo display. */
+.print-logo {
+    background-color: #f1564d;
+}
+
+.print-logo img{
+    width: 20%;
+    padding: 1em;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+}
+
+a {
+    color: #3f3f3f;
+    text-decoration: none;
+}
+
+/* Hide default stuff */
+
+.layout-element-beta,   /* User profile extra courses. */
+.print-title,
+.print-hr,
+.print-site_name,
+.print-breadcrumb,
+.block--pdf {
+    display: none;
+}
+
+
+/* Layout */
+
+.content {
+    position: relative;
+    width: 700px;
+}
+
+.content--image {
+    padding-bottom: 30px;
+    position: relative;
+    width: 100%;
+}
+
+/*.field--image img{*/
+/*    border-bottom: 5px solid #17858c;*/
+/*}*/
+
+/*.is-dagtilbud  .field--image img{*/
+/*    border-bottom: 5px solid #a4da20;*/
+/*}*/
+
+/*.is-grundskole .field--image img {*/
+/*    border-bottom: 5px solid #901d7c;*/
+/*}*/
+
+/*.is-ungdomsuddannelse .field--image img {*/
+/*    border-bottom: 5px solid #ff6800;*/
+/*}*/
+
+/*.is-course .field--image img {*/
+/*    border-bottom: 5px solid #edd71c;*/
+/*}*/
+
+
+.field--title {
+    font-size: 30px;
+}
+
+.content--main {
+    position: relative;
+    width: 100%;
+}
+
+.content--meta {
+    position: relative;
+    width: 100%;
+}
+
+/* Elements */
+.field--image img {
+    width: 100%;
+    height:auto;
+}
+
+.block--field-logo {
+    margin-bottom: 30px;
+}
+
+/* Blocks */
+
+.block--light {
+    background: #e6e6e6;
+    display: block;
+    margin-bottom: 10px;
+    padding: 20px;
+    page-break-inside: avoid;
+}
+
+.block--dark {
+    background: #2c649c;
+    color: #fff;
+    display: block;
+    margin-bottom: 20px;
+    padding: 20px;
+    page-break-inside: avoid;
+}
+
+.block--dark.coral {
+  background-color: #f1564d;
+}
+
+.block--dark .is-full-width {
+     width: 100%;
+ }
+
+.block--dark a {
+    display: none;
+}
+
+.block--field-wrapper {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    page-break-inside : avoid;
+}
+
+.block--field-wrapper:last-child {
+    border-bottom: 0;
+}
+
+.block--field-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.is-inline {
+    overflow: hidden;
+}
+
+.is-inline .block--field-label {
+    width: 100%;
+}
+
+.is-inline .block--field-text {
+    width: 100%;
+}
+
+.block--field-text {
+    margin-bottom: 10px;
+}
+
+.block--field-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Fields */
+
+/* Display of field collections in main content. */
+.field--collection-wrapper {
+    margin-bottom: 10px;
+    page-break-inside : avoid;
+}
+
+.field--collection-label {
+    color: white;
+    background: #f1564d;
+    padding: 10px;
+    page-break-after : avoid;
+}
+
+.field--collection-content {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.field--collection-item {
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+
+.field--collection-description,
+.field--collection-file,
+.field--collection-link,
+.field--collection-litt {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.field--collection-description {
+    font-weight: normal;
+}
+/**
+ * World targets
+ */
+.world-targets {display: block;padding: 0;height: 100px;margin-top: 20px;margin-bottom: -20px;}
+.world-target {margin: 0;display: inline-block;padding: 0 10px 0 0;height: 100px;width: 100px;}
+.world-target a {display: block;}
+.world-target a img {height: 100px;width: 100px;}
