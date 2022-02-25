@@ -100,12 +100,13 @@ function ulf_hjoerring_settings_access($account = NULL) {
  */
 function ulf_hjoerring_settings_user_presave(&$edit, $account, $category)
 {
-  if($edit['status'] == 1) {
-    $role = user_role_load_by_name('company');
-    if(isset($edit['roles'][$role->rid]) && $edit['roles'][$role->rid] != 0) {
-      $edit['status'] = 0;
-    }
-  }
+//  Irrelevant for udsynmodarbejdsliv.dk.
+//  if($edit['status'] == 1) {
+//    $role = user_role_load_by_name('company');
+//    if(isset($edit['roles'][$role->rid]) && $edit['roles'][$role->rid] != 0) {
+//      $edit['status'] = 0;
+//    }
+//  }
 }
 
 /**

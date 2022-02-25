@@ -14,6 +14,34 @@ function ulf_hjoerring_settings_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_branche|node|internship|form';
+  $field_group->group_name = 'group_branche';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'internship';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Branche',
+    'weight' => '8',
+    'children' => array(
+      0 => 'field_branche',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-branche field-group-fieldset',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_branche|node|internship|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_contact|node|education|form';
   $field_group->group_name = 'group_contact';
   $field_group->entity_type = 'node';
@@ -51,7 +79,7 @@ function ulf_hjoerring_settings_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Vis kontaktformular / Skjul kontaktformular',
-    'weight' => '49',
+    'weight' => '14',
     'children' => array(
       0 => 'field_message_form',
     ),
@@ -310,7 +338,7 @@ function ulf_hjoerring_settings_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Faciliteter',
-    'weight' => '7',
+    'weight' => '6',
     'children' => array(
       0 => 'field_facilities',
       1 => 'field_facilities_info',
@@ -369,7 +397,7 @@ function ulf_hjoerring_settings_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Materialer',
-    'weight' => '8',
+    'weight' => '7',
     'children' => array(
       0 => 'field_educational_material',
     ),
@@ -428,7 +456,7 @@ function ulf_hjoerring_settings_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Billeder/medier',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
       0 => 'field_image',
       1 => 'field_video',
@@ -647,7 +675,7 @@ function ulf_hjoerring_settings_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'pretix',
-    'weight' => '51',
+    'weight' => '15',
     'children' => array(
       0 => 'field_pretix_enable',
       1 => 'field_pretix_synchronize',
@@ -741,6 +769,7 @@ function ulf_hjoerring_settings_field_group_info() {
   // Included for use with string extractors like potx.
   t('Aktiviteter, forberedelse og efterbehandling');
   t('Billeder/medier');
+  t('Branche');
   t('Faciliteter');
   t('Forløbet');
   t('Lokation');
