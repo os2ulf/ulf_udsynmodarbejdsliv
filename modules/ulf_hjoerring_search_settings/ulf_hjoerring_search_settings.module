@@ -32,12 +32,15 @@ function ulf_hjoerring_search_settings_default_search_api_index_alter(array &$de
     // Change search filter role for user index. Role ID for aarhus differs from other sites.
     $role = user_role_load_by_name('company');
     $defaults['companies']->options['data_alter_callbacks']['search_api_alter_role_filter']['settings']['roles'] = [$role->rid => $role->rid];
+    $defaults['users']->enabled = 0;
   }
   if(isset($defaults['educations'])) {
     $defaults['educations']->options['search_node_indexes'] = variable_get('search_api_search_node_index_educations', '');
+    $defaults['users']->enabled = 0;
   }
   if(isset($defaults['internships'])) {
     $defaults['internships']->options['search_node_indexes'] = variable_get('search_api_search_node_index_internships', '');
+    $defaults['users']->enabled = 0;
   }
 }
 

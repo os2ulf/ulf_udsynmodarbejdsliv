@@ -581,15 +581,16 @@ if (isset($_ENV['PLATFORM_BRANCH'])) {
 
   if ($_ENV['PLATFORM_BRANCH'] == 'develop') {
     $base_url = 'https://udsynmodarbejdsliv.dk.develop-sr3snxi-ti4ifpbxl6ymg.eu-2.platformsh.site';
-    $conf['search_api_search_node_host'] = 'https://udsynmodarbejdsliv.dk.develop-sr3snxi-ti4ifpbxl6ymg.eu-2.platformsh.site';
+    $conf['search_api_search_node_host'] = 'https://search-node.udsynmodarbejdsliv.dk.develop-sr3snxi-ti4ifpbxl6ymg.eu-2.platformsh.site';
     $conf['search_api_search_node_apikey'] = 'b20a8b2c827d7d2acbdce6d8836313fc';
     $conf['search_api_search_node_apikey_readonly'] = '0c78a42f2865ab68d5ea65e369ecaabb';
     $conf['search_api_search_node_index_courses'] = 'f4e12497f757d7ca7fee0fff0f5bffab';
     $conf['search_api_search_node_index_users'] = '1126eeec91dde1bf587f91da025a39a4';
     $conf['search_api_search_node_index_internships'] = '65f9284ed834ed7865ed5331f9e4aa90';
     $conf['search_api_search_node_index_educations'] = '8bef58ee38d92ff71a29c6d31569bd6a';
+    $conf['search_api_search_node_index_companies'] = 'e8d9bfcd61212f6d4b3c23ff6addd25b';
+    $conf['search_api_search_node_index_educator'] = '86469fb6a5378b5cc95e3430dd0a0bfe';
   }
-
 }
 
 // hacky way of enabling extra functionality of the ulf_entityform module
