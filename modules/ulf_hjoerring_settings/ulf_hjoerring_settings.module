@@ -62,10 +62,10 @@ function ulf_hjoerring_settings_secure_permissions($role) {
     $permissions = array_diff($permissions, $remove);
   }
 
-  if($role == 'company') {
-    // companies should never actually log in, so their permissions doesn't matter
-    $permissions = [];
-  }
+//  if($role == 'company') {
+//    // companies should never actually log in, so their permissions doesn't matter
+//    $permissions = [];
+//  }
 
   return $permissions;
 }
@@ -127,6 +127,8 @@ function ulf_hjoerring_settings_field_default_field_bases_alter(&$fields)
  */
 function ulf_hjoerring_settings_form_alter(&$form, &$form_state, $form_id)
 {
+  // Irrelevant for udsyinmodarbejdsliv.dk.
+  return;
   if($form_id == 'internship_node_form' || $form_id == 'education_node_form') {
     $node = $form_state['node'];
     $form['company'] = $form['author'];

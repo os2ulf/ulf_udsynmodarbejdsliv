@@ -11,4 +11,4 @@ features[page_manager_pages][] = search_companies
 features[page_manager_pages][] = search_educations
 features[search_api_index][] = companies
 features[search_api_index][] = educations
-project path = sites/ungegarantien.dk/modules
+project path = sites/udsynmodarbejdsliv.dk/modules
