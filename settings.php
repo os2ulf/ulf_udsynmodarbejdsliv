@@ -566,16 +566,16 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
 if (isset($_ENV['PLATFORM_BRANCH'])) {
 
   if ($_ENV['PLATFORM_BRANCH'] == 'master') {
-    $base_url = 'https://udsynmodarbejdsliv.dk';
-    $conf['search_api_search_node_host'] = 'https://search-node.ulfiaarhus.dk';
-//  $conf['search_api_search_node_host'] = 'https://search-node.ungegarantien.dk';
-    $conf['search_api_search_node_apikey'] = 'b20a8b2c827d7d2acbdce6d8836313fc';
-    $conf['search_api_search_node_apikey_readonly'] = '0c78a42f2865ab68d5ea65e369ecaabb';
-    $conf['search_api_search_node_index_courses'] = 'f4e12497f757d7ca7fee0fff0f5bffab';
-//  $conf['search_api_search_node_index_educators'] = '2a2a48beb913458ace67c3985dbeb599';
-    $conf['search_api_search_node_index_users'] = '1126eeec91dde1bf587f91da025a39a4';
-    $conf['search_api_search_node_index_internships'] = '65f9284ed834ed7865ed5331f9e4aa90';
-    $conf['search_api_search_node_index_educations'] = '8bef58ee38d92ff71a29c6d31569bd6a';
+//    $base_url = 'https://udsynmodarbejdsliv.dk';
+//    $conf['search_api_search_node_host'] = 'https://search-node.ulfiaarhus.dk';
+////  $conf['search_api_search_node_host'] = 'https://search-node.ungegarantien.dk';
+//    $conf['search_api_search_node_apikey'] = 'b20a8b2c827d7d2acbdce6d8836313fc';
+//    $conf['search_api_search_node_apikey_readonly'] = '0c78a42f2865ab68d5ea65e369ecaabb';
+//    $conf['search_api_search_node_index_courses'] = 'f4e12497f757d7ca7fee0fff0f5bffab';
+////  $conf['search_api_search_node_index_educators'] = '2a2a48beb913458ace67c3985dbeb599';
+//    $conf['search_api_search_node_index_users'] = '1126eeec91dde1bf587f91da025a39a4';
+//    $conf['search_api_search_node_index_internships'] = '65f9284ed834ed7865ed5331f9e4aa90';
+//    $conf['search_api_search_node_index_educations'] = '8bef58ee38d92ff71a29c6d31569bd6a';
 //  $conf['search_api_search_node_index_companies'] = '54894398a98f973ec6a24936b72d3bf9';
   }
 
