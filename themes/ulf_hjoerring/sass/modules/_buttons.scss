@@ -17,11 +17,11 @@
 %button {
   position: relative;
 
-  border: 1px solid $dark-blue;
+  border: 1px solid $light-green;
   display: inline-block;
   padding: .4em 1.5em;
 
-  background-color: $dark-blue;
+  background-color: $light-green;
   color: $white;
   cursor: pointer;
   font-size: 100%;
@@ -34,8 +34,8 @@
   &:focus,
   &:hover,
   &:active {
-    background-color: $dark-blue;
-    border: 1px solid $dark-blue;
+    background-color: $light-green;
+    border: 1px solid $light-green;
     text-decoration: none;
   }
 }
@@ -48,14 +48,14 @@
 .button {
   @extend %button;
 
-  background-color: $dark-blue;
-  border: 1px solid $dark-blue;
+  background-color: $light-green;
+  border: 1px solid $light-green;
   color: $white;
 
   @include strip-link-styles($white);
 
   &:hover {
-    background-color: $dark-blue;
+    background-color: $light-green;
   }
 
   &:link {

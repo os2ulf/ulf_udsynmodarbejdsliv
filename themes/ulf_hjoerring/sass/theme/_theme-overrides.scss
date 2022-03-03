@@ -8,7 +8,7 @@
 /* Default file: base/_base.scss
 ================================================================================================================== */
 body {
-  background: $coral;
+  background: $udsyn_background;
   color: $gray;
 }
 
@@ -65,7 +65,7 @@ body {
 ================================================================================================================== */
 
 .header {
-  background: $coral;
+  background: $header-color;
 
   &--logo {
     max-width: 8em;
@@ -81,7 +81,7 @@ body {
   color: $white;
 
   &.coral {
-    background: $coral;
+    background: $beige;
   }
 
   a {
@@ -109,13 +109,33 @@ body {
   }
 }
 
-.is-internship,
+.is-internship {
+  .block--dark {
+    background: $block-dark;
+    color: $white;
+
+    &.coral {
+      background: $medium-green;
+    }
+
+    a {
+      @include strip-link-styles($white, underline);
+    }
+  }
+  .block--pdf,
+  .block--signup {
+    &-link {
+      background: $header-color;
+      border: $header-color;
+    }
+  }
+}
 .is-education {
   .block--pdf,
   .block--signup {
     &-link {
-      background: $coral;
-      border: $dark-coral;
+      background: $dark-beige;
+      border: $dark-beige;
     }
   }
 }
@@ -132,37 +152,45 @@ body {
   /* Display of node title. */
   &--title {
     @include background-set-color('white', 0.7);
-    border-color: $dark-blue;
+    border-color: $light-green;
 
     &.is-profile {
-      border-color: $link-color;
+      border-color: $light-green;
     }
 
     &.is-internship {
-      border-color: $coral;
+      border-color: $medium-green;
     }
 
     &.is-education {
-      border-color: $coral;
+      border-color: $beige;
     }
   }
 
   &--collection-label {
     color: $white;
-    background: $link-color;
+    background: $light-green;
   }
 }
 
-.is-internship,
+.is-internship {
+  .field--collection-label {
+    background: $medium-green;
+  }
+}
 .is-education {
   .field--collection-label {
-    background: $coral;
+    background: $beige;
   }
 }
 
 /* Footer */
 .footer--after {
   background: none;
+}
+
+.footer {
+  background: $dark-beige;
 }
 
 /* Default file: modules/_paragraphs.scss
@@ -422,7 +450,6 @@ html.mm-opened{
 .page-udbydere,
 .page-nyheder,
  .page-uddannelse-og-job {
-
   .page--wrapper {
     background: #DBDAD0;
     .pagination a:link, .pagination a:visited, .pagination a:focus, .pagination span {
@@ -451,7 +478,7 @@ html.mm-opened{
   padding: 30px 0;
 
   .field--collection-label {
-    background: $coral;
+    background: black;
   }
 }
 
