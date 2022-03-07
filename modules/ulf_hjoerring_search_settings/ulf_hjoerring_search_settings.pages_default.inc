@@ -181,8 +181,8 @@ function ulf_hjoerring_search_settings_default_page_manager_pages() {
         ),
       ),
       'templates' => array(
-        'box' => 'sites/ungegarantien.dk/themes/ulf_hjoerring/templates/search/angular/search-users.html',
-        'result' => 'sites/ungegarantien.dk/themes/ulf_hjoerring/templates/search/angular/results-users.html',
+        'box' => 'sites/udsynmodarbejdsliv.dk/themes/ulf_hjoerring/templates/search/angular/search-users.html',
+        'result' => 'sites/udsynmodarbejdsliv.dk/themes/ulf_hjoerring/templates/search/angular/results-users.html',
         'pager' => 'profiles/ulf/themes/ulf_default/templates/search/angular/pager.html',
         'popup' => 'profiles/ulf/themes/ulf_default/templates/search/angular/popup-users.html',
       ),
@@ -431,8 +431,8 @@ function ulf_hjoerring_search_settings_default_page_manager_pages() {
         ),
       ),
       'templates' => array(
-        'box' => 'sites/ungegarantien.dk/themes/ulf_hjoerring/templates/search/angular/search-education.html',
-        'result' => 'sites/ungegarantien.dk/themes/ulf_hjoerring/templates/search/angular/results-education.html',
+        'box' => 'sites/udsynmodarbejdsliv.dk/themes/ulf_hjoerring/templates/search/angular/search-education.html',
+        'result' => 'sites/udsynmodarbejdsliv.dk/themes/ulf_hjoerring/templates/search/angular/results-education.html',
         'pager' => 'profiles/ulf/themes/ulf_default/templates/search/angular/pager.html',
         'popup' => 'profiles/ulf/themes/ulf_default/templates/search/angular/popup-course.html',
       ),

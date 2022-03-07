@@ -16,30 +16,30 @@ include_once 'ulf_hjoerring_search_settings.features.inc';
 function ulf_hjoerring_search_settings_default_search_api_index_alter(array &$defaults) {
 
   if(isset($defaults['courses'])) {
-    $defaults['courses']->options['search_node_indexes'] = variable_get('search_api_search_node_index_courses', '2a4afb4786d673087d3e1c2952e014c2');
+    $defaults['courses']->options['search_node_indexes'] = variable_get('search_api_search_node_index_courses', 'f4e12497f757d7ca7fee0fff0f5bffab');
     $defaults['courses']->enabled = 0;
   }
   if(isset($defaults['educators'])) {
-    $defaults['educators']->options['search_node_indexes'] = variable_get('search_api_search_node_index_educators', '2a2a48beb913458ace67c3985dbeb597');
+    $defaults['educators']->options['search_node_indexes'] = variable_get('search_api_search_node_index_educators', '86469fb6a5378b5cc95e3430dd0a0bfe');
     $defaults['educators']->enabled = 0;
   }
   if(isset($defaults['users'])) {
-    $defaults['users']->options['search_node_indexes'] = variable_get('search_api_search_node_index_users', '8f14dd7c053eabc55173fd740a5bb54f');
+    $defaults['users']->options['search_node_indexes'] = variable_get('search_api_search_node_index_users', '1126eeec91dde1bf587f91da025a39a4');
     $defaults['users']->enabled = 0;
   }
   if(isset($defaults['companies'])) {
-    $defaults['companies']->options['search_node_indexes'] = variable_get('search_api_search_node_index_companies', '54894398a98f973ec6a24936b72d3bf4');
+    $defaults['companies']->options['search_node_indexes'] = variable_get('search_api_search_node_index_companies', 'e8d9bfcd61212f6d4b3c23ff6addd25b');
     // Change search filter role for user index. Role ID for aarhus differs from other sites.
     $role = user_role_load_by_name('company');
     $defaults['companies']->options['data_alter_callbacks']['search_api_alter_role_filter']['settings']['roles'] = [$role->rid => $role->rid];
     $defaults['users']->enabled = 0;
   }
   if(isset($defaults['educations'])) {
-    $defaults['educations']->options['search_node_indexes'] = variable_get('search_api_search_node_index_educations', '1e755e6cdb1a489abc0d883efb86ccc3');
+    $defaults['educations']->options['search_node_indexes'] = variable_get('search_api_search_node_index_educations', '8bef58ee38d92ff71a29c6d31569bd6a');
     $defaults['users']->enabled = 0;
   }
   if(isset($defaults['internships'])) {
-    $defaults['internships']->options['search_node_indexes'] = variable_get('search_api_search_node_index_internships', '98b141acfa9afc452d8549247a9909f6');
+    $defaults['internships']->options['search_node_indexes'] = variable_get('search_api_search_node_index_internships', '65f9284ed834ed7865ed5331f9e4aa90');
     $defaults['users']->enabled = 0;
   }
 }
