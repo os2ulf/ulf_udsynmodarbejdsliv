@@ -98,7 +98,7 @@
             </div>
             <div class="block--dark">
               <h2 class="block--header">
-                <?php print t('Company');?>
+                <?php print t('Organizer');?>
               </h2>
               <div class="block--content">
                 <div class="block--field-label"><?php print render($user_profile['field_profile_name']); ?></div>
