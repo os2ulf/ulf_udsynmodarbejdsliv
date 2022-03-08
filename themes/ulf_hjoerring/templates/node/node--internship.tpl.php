@@ -163,7 +163,7 @@
                       <?php print render($content['field_last_signup_date']); ?>
 
                       <?php if ($field_signup_show_link[LANGUAGE_NONE][0]['value'] === '1'): ?>
-                          <?php print l(t('How to apply for an internship'), '/sådan-søger-du-erhvervspraktik', ['attributes' => ['class' => 'block--signup-link']]) ?>
+                          <?php print l(t('How to apply for an internship'), '/tilmelding', ['attributes' => ['class' => 'block--signup-link']]) ?>
                       <?php endif; ?>
                     </div>
                   </div>

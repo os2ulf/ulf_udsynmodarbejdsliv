@@ -11,7 +11,10 @@ body {
   background: $udsyn_background;
   color: $gray;
 }
-
+.page--wrapper,
+.page--inner {
+  background: $udsyn_background;
+}
 
 a {
   &:link {
@@ -77,7 +80,7 @@ body {
 ================================================================================================================== */
 
 .block--dark {
-  background: $block-dark;
+  background: $medium-green;
   color: $white;
 
   &.coral {
@@ -190,7 +193,7 @@ body {
 }
 
 .footer {
-  background: $dark-beige;
+  background: $beige;
 }
 
 /* Default file: modules/_paragraphs.scss
