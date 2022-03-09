@@ -163,7 +163,7 @@
                       <?php print render($content['field_last_signup_date']); ?>
 
                       <?php if ($field_signup_show_link[LANGUAGE_NONE][0]['value'] === '1'): ?>
-                          <?php print l(t('How to apply for an internship'), '/tilmelding', ['attributes' => ['class' => 'block--signup-link']]) ?>
+                          <?php print l(t('How to apply for an internship'), '/sådan-søger-du-erhvervspraktik', ['attributes' => ['class' => 'block--signup-link']]) ?>
                       <?php endif; ?>
                     </div>
                   </div>
@@ -245,6 +245,16 @@
               </div>
             <?php endif;?>
           </div>
+          <?php if (isset($content['field_interesseomraader']['#items'][0])): ?>
+            <div class="block--light coral">
+              <h2 class="block--header">Interesseområder</h2>
+              <div class="block--content">
+                <div class="block--field-wrapper">
+                  <?php print render($content['field_interesseomraader']); ?>
+                </div>
+              </div>
+            </div>
+          <?php endif; ?>
           <div class="block--dark coral">
             <h2 class="block--header">
               <?php print t('Contact provider');?>
