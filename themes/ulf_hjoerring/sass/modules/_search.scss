@@ -36,8 +36,8 @@
       .search--widget-selected,
       .search--filter-search-submit {
         @include background-set-color('blue', 1);
-        background: $dark-beige;
-        border-color: $dark-beige;
+        background: $medium-blue;
+        border-color: $medium-blue;
       }
       .search--filter-wrapper-inner,
       .search--filter-dropdown-inner,
