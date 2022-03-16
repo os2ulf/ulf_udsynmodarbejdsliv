@@ -103,7 +103,7 @@
     <?php if (isset($garantipartner) && $garantipartner == true) : ?>
         <div class="ribbon-wrapper left">
           <div class="ribbon is-<?php print $group_type; ?>">
-            <a href="/node/<?php print $nid; ?>">Garantipartner</a>
+            <a href="/node/<?php print $nid; ?>">Udbyder</a>
           </div>
         </div>
     <?php endif;?>

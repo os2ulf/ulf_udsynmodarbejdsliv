@@ -4200,7 +4200,7 @@ At opnå kendskab til...
     ),
     'entity_type' => 'user',
     'field_name' => 'field_garantipartner',
-    'label' => 'Garantipartner',
+    'label' => 'List virksomhed på søgning',
     'required' => 0,
     'settings' => array(
       'user_register_form' => 0,
