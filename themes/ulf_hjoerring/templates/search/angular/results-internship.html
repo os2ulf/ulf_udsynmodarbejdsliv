@@ -31,7 +31,7 @@
       </div>
       <header>
         <h2 class="search-results--header">
-          <a href="{{ hit.url }}">{{ hit.field_free }}</a>
+          <a href="{{ hit.url }}">{{ hit.title }}</a>
         </h2>
         <p data-ng-bind-html="hit['field_full_description:value'] | trimWordBoundary:100"></p>
         <p class="teaser--type">Udbyder: <a href="{{ hit['author:url'] }}">{{ hit['author:field_profile_name'] }}</a></p>
