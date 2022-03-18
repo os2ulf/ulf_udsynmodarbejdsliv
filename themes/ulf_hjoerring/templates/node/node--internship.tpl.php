@@ -89,7 +89,6 @@
       <?php endif; ?>
       <div class="content is-internship">
         <div class="content--image">
-
           <?php if (isset($garantipartner) && $garantipartner == 1) : ?>
             <div class="ribbon-wrapper left is-content">
               <div class="ribbon is-content">
@@ -97,7 +96,13 @@
               </div>
             </div>
           <?php endif;?>
-
+          <?php if (isset($field_free['0']) && $field_free['0']['value'] == 1) : ?>
+            <div class="ribbon-wrapper left is-content">
+              <div class="ribbon is-content">
+                <div class="ribbon--course is-content"><?php print 'Gratis' ?></div>
+              </div>
+            </div>
+          <?php endif;?>
           <h1 class="field--title is-internship"><?php print render($title); ?></h1>
           <?php print render($content['field_image']); ?>
         </div>
@@ -305,7 +310,7 @@
       hide($content['field_duration']);
       hide($content['field_duration_unit']);
       hide($content['field_collection_price']);
-      hide($content['field_free']);
+//      hide($content['field_free']);
       hide($content['field_pretix_date']);
       hide($content['comments']);
       hide($content['links']); ?>
