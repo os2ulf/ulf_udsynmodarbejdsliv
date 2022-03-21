@@ -89,13 +89,13 @@
       <?php endif; ?>
       <div class="content is-internship">
         <div class="content--image">
-          <?php if (isset($garantipartner) && $garantipartner == 1) : ?>
-            <div class="ribbon-wrapper left is-content">
-              <div class="ribbon is-content">
-                <div class="ribbon--internship is-content"><?php print t('Garantipartner'); ?></div>
-              </div>
-            </div>
-          <?php endif;?>
+<!--          --><?php //if (isset($garantipartner) && $garantipartner == 1) : ?>
+<!--            <div class="ribbon-wrapper left is-content">-->
+<!--              <div class="ribbon is-content">-->
+<!--                <div class="ribbon--internship is-content">--><?php //print t('Garantipartner'); ?><!--</div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          --><?php //endif;?>
           <?php if (isset($field_free['0']) && $field_free['0']['value'] == 1) : ?>
             <div class="ribbon-wrapper left is-content">
               <div class="ribbon is-content">
