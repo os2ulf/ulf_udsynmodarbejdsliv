@@ -16,14 +16,14 @@ function ulf_hjoerring_search_settings_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Search - companies';
   $page->admin_description = '';
-  $page->path = 'udbydere';
+  $page->path = 'virksomheder';
   $page->access = array(
     'type' => 'none',
     'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'Udbydere',
+    'title' => '',
     'name' => 'main-menu',
     'weight' => '5',
     'parent' => array(

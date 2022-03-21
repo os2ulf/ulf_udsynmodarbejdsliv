@@ -28,7 +28,7 @@ function ulf_hjoerring_search_settings_default_search_api_index() {
     "options" : {
       "index_directly" : 0,
       "cron_limit" : "50",
-      "search_node_indexes" : "",
+      "search_node_indexes" : "e8d9bfcd61212f6d4b3c23ff6addd25b",
       "fields" : {
         "created" : { "type" : "date" },
         "field_branche" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
@@ -192,7 +192,7 @@ function ulf_hjoerring_search_settings_default_search_api_index() {
       "datasource" : { "bundles" : [ "education" ] },
       "index_directly" : 0,
       "cron_limit" : "50",
-      "search_node_indexes" : "1e755e6cdb1a489abc0d883efb86ccc3",
+      "search_node_indexes" : "8bef58ee38d92ff71a29c6d31569bd6a",
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "author:field_branche" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
@@ -202,6 +202,7 @@ function ulf_hjoerring_search_settings_default_search_api_index() {
         "changed" : { "type" : "date" },
         "created" : { "type" : "date" },
         "field_competencies" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_free" : { "type" : "boolean" },
         "field_full_description:value" : { "type" : "text" },
         "field_image:file" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "file" },
         "field_location" : { "type" : "string" },

@@ -100,13 +100,13 @@
     <?php endif;?>
   <?php endif;?>
   <?php if ($type == 'internship' || $type == 'education') : ?>
-    <?php if (isset($garantipartner) && $garantipartner == true) : ?>
-        <div class="ribbon-wrapper left">
-          <div class="ribbon is-<?php print $group_type; ?>">
-            <a href="/node/<?php print $nid; ?>">Udbyder</a>
-          </div>
-        </div>
-    <?php endif;?>
+<!--    --><?php //if (isset($garantipartner) && $garantipartner == true) : ?>
+<!--        <div class="ribbon-wrapper left">-->
+<!--          <div class="ribbon is---><?php //print $group_type; ?><!--">-->
+<!--            <a href="/node/--><?php //print $nid; ?><!--">Udbyder</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--    --><?php //endif;?>
     <?php if ($content['field_free']['#items']['0']['value'] == 1) : ?>
       <div class="ribbon-wrapper left">
         <div class="ribbon">
