@@ -60,7 +60,11 @@ body {
   }
 
   a {
-    @include strip-link-styles($white, underline);
+    color: $link-color-alt !important;
+  }
+
+  a:hover {
+    color: $link-color-hover-alt !important;
   }
 }
 
@@ -84,7 +88,7 @@ body {
   color: $white;
 
   &.coral {
-    background: $beige;
+    background: $beige !important;
   }
 
   a {
@@ -96,7 +100,7 @@ body {
   background: $light-gray;
 
   &.coral {
-    background: $light-gray;
+    background: $light-gray !important;
   }
 
   a {
@@ -112,13 +116,32 @@ body {
   }
 }
 
+.content:not(.is-internship, .is-education) {
+  color: $black;
+  &.block--light,
+  &.block--dark {
+    background: $dark-green;
+    color: $black;
+    a:link {
+      color: $link-color-alt;
+    }
+  }
+  .field--collection-label {
+    color: $black;
+  }
+}
+
+.layout-element-beta {
+  background: $dark-green !important;
+}
+
 .is-internship {
   .block--dark {
     background: $block-dark;
     color: $white;
 
     &.coral {
-      background: $medium-green;
+      background: $medium-green !important;
     }
 
     a {
@@ -179,11 +202,13 @@ body {
 .is-internship {
   .field--collection-label {
     background: $medium-green;
+    color: $white;
   }
 }
 .is-education {
   .field--collection-label {
     background: $beige;
+    color: $white;
   }
 }
 
@@ -194,6 +219,10 @@ body {
 
 .footer {
   background: $beige;
+  color: $black;
+  a {
+    color: $link-color-alt;
+  }
 }
 
 /* Default file: modules/_paragraphs.scss
