@@ -116,6 +116,10 @@ body {
   }
 }
 
+.layout-element-alpha {
+  background: $udsyn_background !important;
+}
+
 .content:not(.is-internship, .is-education) {
   color: $black;
   &.block--light,
