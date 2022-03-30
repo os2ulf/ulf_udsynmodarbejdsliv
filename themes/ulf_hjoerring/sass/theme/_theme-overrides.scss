@@ -18,7 +18,7 @@ body {
 
 a {
   &:link {
-    color: $link-color;
+    color: $link-color-alt;
     text-decoration: underline;
   }
 
@@ -27,7 +27,7 @@ a {
   }
 
   &:hover {
-    color: $link-color-hover;
+    color: $link-color-hover-alt;
     text-decoration: none;
   }
 
@@ -79,7 +79,6 @@ body {
   }
 }
 
-
 /* Default file: modules/_block.scss
 ================================================================================================================== */
 
@@ -92,7 +91,7 @@ body {
   }
 
   a {
-    @include strip-link-styles($white, underline);
+    color: $link-color-alt !important;
   }
 }
 
@@ -118,6 +117,12 @@ body {
 
 .layout-element-alpha {
   background: $udsyn_background !important;
+  //a:link {
+  //  color: inherit;
+  //}
+  //a:hover {
+  //  color: inherit;
+  //}
 }
 
 .content:not(.is-internship, .is-education) {
@@ -126,17 +131,39 @@ body {
   &.block--dark {
     background: $beige-user;
     color: $black;
-    a:link {
-      color: $link-color-alt;
-    }
   }
   .field--collection-label {
     color: $black;
   }
 }
 
-.teaser--content-header {
-  background: none !important;
+.teaser {
+  &--content-header {
+    background: none !important;
+  }
+}
+
+.teaser {
+  &--type-read-more {
+    a {
+      color: $link-color-alt;
+    }
+
+    a:hover {
+      color: $link-color-hover-alt;
+    }
+  }
+}
+
+.hero {
+  &--content {
+    h1 {
+      font-size: 22px !important;
+    }
+    .subline {
+      font-size: 18px !important;
+    }
+  }
 }
 
 .layout-element-beta {
@@ -152,8 +179,21 @@ body {
       background: $medium-green !important;
     }
 
-    a {
-      @include strip-link-styles($white, underline);
+    a:link {
+      color: $link-color-alt !important;
+    }
+
+    a:hover {
+      color: $link-color-hover-alt !important;
+    }
+  }
+  .block--light {
+    a:link {
+      color: $link-color-alt !important;
+    }
+
+    a:hover {
+      color: $link-color-hover-alt !important;
     }
   }
   .block--pdf,
@@ -162,6 +202,13 @@ body {
       background: $header-color;
       border: $header-color;
     }
+
+    a:link {
+      color: white !important;
+    }
+  }
+  .block--pdf-link {
+
   }
 }
 .is-education {
@@ -227,7 +274,7 @@ body {
 
 .footer {
   background: $beige;
-  color: $black;
+  color: $link-color-alt;
   a {
     color: $link-color-alt;
   }
@@ -239,7 +286,15 @@ body {
 .entity-paragraphs-item {
   .btn {
     @extend %button;
-    @include strip-link-styles($white);
+    @include strip-link-styles($link-color-alt);
+    color: $white !important;
+  }
+  .btn:visited {
+    background: $medium-blue;
+  }
+  .btn:hover {
+    background: $medium-blue;
+    border-color: $medium-blue;
   }
 }
 
