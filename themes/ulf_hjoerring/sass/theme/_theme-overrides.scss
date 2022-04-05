@@ -284,8 +284,6 @@ body {
 
 .entity-paragraphs-item {
   .btn {
-    @extend %button;
-    @include strip-link-styles($link-color-alt);
     color: $white !important;
     background: $medium-blue !important;
     border-color: $medium-blue !important;
