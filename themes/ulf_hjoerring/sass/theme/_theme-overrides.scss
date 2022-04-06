@@ -335,6 +335,12 @@ a:focus {
   outline: none;
 }
 
+.tabs {
+  a {
+    color: $black;
+  }
+}
+
 .toolbar-drawer,
 .toolbar-menu,
 .header {
