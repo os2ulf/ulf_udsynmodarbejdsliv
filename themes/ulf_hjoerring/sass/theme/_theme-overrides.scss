@@ -130,6 +130,12 @@ body {
   &.block--dark {
     background: $beige-user;
     color: $black;
+    a {
+      color: $link-color-alt !important;
+      &:hover {
+        color: $link-color-hover-alt !important;
+      }
+    }
   }
   .field--collection-label {
     color: $black;
@@ -329,6 +335,8 @@ a:focus {
   outline: none;
 }
 
+.toolbar-drawer,
+.toolbar-menu,
 .header {
   z-index: 100;
   a {
