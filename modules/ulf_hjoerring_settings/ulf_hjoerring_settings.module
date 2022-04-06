@@ -121,102 +121,22 @@ function ulf_hjoerring_settings_field_default_field_bases_alter(&$fields)
   }
 }
 
-
 /**
  * Implements hook_form_alter().
  */
 function ulf_hjoerring_settings_form_alter(&$form, &$form_state, $form_id)
 {
-  // Irrelevant for udsyinmodarbejdsliv.dk.
-  return;
-  if($form_id == 'internship_node_form' || $form_id == 'education_node_form') {
-    $node = $form_state['node'];
-    $form['company'] = $form['author'];
-    unset($form['company']['date']);
-    unset($form['author']['name']);
-    $form['author']['#attributes']['class'] = [];
-    $form['author']['#title'] = 'Oprettelsesdato';
-    if(!isset($node->nid) || isset($node->is_new)) {
-      $form['company']['name']['#default_value'] = '';
+  // On udsynmodardbejdsliv.dk, the "garantipartner" on user profiles becomes
+  // "List virksomhed på søgning", because field_garantipartner is used by the search
+  // to decide whether or not to index companies. Companies will have field_garantipartner
+  // as TRUE by default, but we should change the label because this site doesn't work with the concept
+  // of "garantipartner".
+  if ($form_id === 'user_profile_form') {
+    if (isset($form['field_garantipartner']['und']['#title'])) {
+      $form['field_garantipartner']['und']['#title'] = t('List virksomhed på søgning');
     }
-    $form['company']['name']['#description'] = '';
-    $form['company']['name']['#required'] = true;
-    $form['company']['name']['#title'] = 'Udbyder';
-    $form['company']['#attributes']['class'] = [];
-    $form['company']['#weight'] = -9;
-    $form['company']['#group'] = null;
-    $form['company']['#collapsed'] = false;
-    $form['company']['#title'] = 'Udbyder';
-
-    $form['field_period']['#states'] = [
-      'invisible' => [
-        ':input[name="field_period_full_year[und]"]' => ['checked' => true],
-      ],
-    ];
-
-
-    if($form_id == 'education_node_form') {
-      $form['field_subjects_primary_school'][LANGUAGE_NONE]['#ajax'] = [
-        'callback' => 'dynamically_change_competencies_options',
-        'wrapper' => 'competencies-wrapper',
-        'method' => 'replace',
-        'effect' => 'fade',
-      ];
-      $form['field_competencies']['und']['#prefix'] = '<div id="competencies-wrapper">';
-      $form['field_competencies']['und']['#suffix'] = '</div>';
-
-      if(isset($form_state['values'])) {
-        //ajax request
-        $subjects = array_column($form_state['values']['field_subjects_primary_school']['und'], 'tid');
-        if($subjects[0] === null) {
-          $subjects = [];
-        }
-      } else if(!isset($node->nid) || isset($node->is_new)) {
-        //creating new node
-        $subjects = [];
-      } else {
-        //editing existing node
-        $subjects = [];
-        if(isset($node->field_subjects_primary_school['und'])) {
-          $subjects = array_column($node->field_subjects_primary_school['und'], 'tid');
-        }
-      }
-
-      $subject_options = $form['field_subjects_primary_school'][LANGUAGE_NONE]['#options'];
-      $taxonomy_tree = taxonomy_get_tree(taxonomy_vocabulary_machine_name_load('competencies')->vid, 0, null, true);
-      $competencies_options = [];
-      foreach ($taxonomy_tree as $term) {
-        if(in_array($term->field_parent_subject['und'][0]['tid'], $subjects)) {
-          $competencies_options[$term->tid] = $subject_options[$term->field_parent_subject['und'][0]['tid']].' - '.$term->name;
-        }
-      }
-
-      $form['field_competencies']['und']['#options'] = $competencies_options;
-      if(!$competencies_options) {
-        $form['field_competencies']['und']['#description'] = 'Vælg først fag';
-      }
-
-    }
-  }
-
-  if($form_id == 'taxonomy_overview_terms') {
-    if($form['#vocabulary']->machine_name == 'competencies') {
-      //adding parent subject names to term name om competencies vocabulary overview
-      $competencies_map = [];
-      foreach (taxonomy_get_tree($form['#vocabulary']->vid, 0, null, true) as $competency) {
-        $competencies_map[$competency->tid] = $competency->field_parent_subject[LANGUAGE_NONE][0]['tid'];
-      }
-      $subjects = [];
-      foreach (taxonomy_get_tree(taxonomy_vocabulary_machine_name_load('subjects_primary_school')->vid, 0, null, false) as $subject) {
-        $subjects[$subject->tid] = $subject->name;
-      }
-      foreach ($form as $key => $value) {
-        if(strpos($key, 'tid:') === 0 && isset($value['tid'])) {
-          if(isset($competencies_map[$value['tid']['#value']]) && isset($subjects[$competencies_map[$value['tid']['#value']]])) {
-            $form[$key]['view']['#title'] = $subjects[$competencies_map[$value['tid']['#value']]].' - '.$form[$key]['view']['#title'];
-          }
-        }
-      }
+    if (isset($form["field_garantipartner"]["und"]["#default_value"])) {
+      $form["field_garantipartner"]["und"]["#default_value"] = 1;
     }
   }
 }
