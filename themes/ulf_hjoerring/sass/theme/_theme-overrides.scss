@@ -331,6 +331,11 @@ a:focus {
 
 .header {
   z-index: 100;
+  a {
+    &:visited {
+      color: $white !important;
+    }
+  }
 }
 .header--inner {
 
