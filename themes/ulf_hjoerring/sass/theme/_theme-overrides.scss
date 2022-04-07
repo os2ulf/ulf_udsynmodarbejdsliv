@@ -195,6 +195,7 @@ body {
     }
   }
   .block--light {
+    a:visited,
     a:link {
       color: $link-color-alt !important;
     }
@@ -210,6 +211,7 @@ body {
       border: $header-color;
     }
 
+    a:visited,
     a:link {
       color: white !important;
     }
