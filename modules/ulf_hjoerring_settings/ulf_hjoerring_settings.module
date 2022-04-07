@@ -135,9 +135,9 @@ function ulf_hjoerring_settings_form_alter(&$form, &$form_state, $form_id)
     if (isset($form['field_garantipartner']['und']['#title'])) {
       $form['field_garantipartner']['und']['#title'] = t('List virksomhed på søgning');
     }
-    if (isset($form["field_garantipartner"]["und"]["#default_value"])) {
-      $form["field_garantipartner"]["und"]["#default_value"] = 1;
-    }
+//    if (isset($form["field_garantipartner"]["und"]["#default_value"])) {
+//      $form["field_garantipartner"]["und"]["#default_value"] = 1;
+//    }
   }
 }
 
