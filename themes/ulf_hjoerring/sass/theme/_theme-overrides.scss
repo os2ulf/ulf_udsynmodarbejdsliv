@@ -335,9 +335,18 @@ a:focus {
   outline: none;
 }
 
-.tabs {
-  a {
-    color: $black;
+.tabs li {
+  a:link {
+    color: $link-color-alt !important;
+  }
+  a:visited {
+    color: $link-color-alt !important;
+  }
+  a:hover {
+    color: $link-color-alt !important;
+  }
+  a:active {
+    color: $link-color-alt !important;
   }
 }
 
@@ -580,8 +589,19 @@ html.mm-opened{
   }
 }
 
+.block--dark,
+.search-results--header,
 .search-results--result {
   background: #fff;
+  a {
+    color: $link-color-alt !important;
+    &:visited {
+      color: $link-color-alt !important;
+    }
+    &:hover {
+      color: $link-color-hover-alt !important;
+    }
+  }
 }
 
 #comments {
