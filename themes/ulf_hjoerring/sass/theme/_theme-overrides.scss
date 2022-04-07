@@ -142,20 +142,22 @@ body {
   }
 }
 
-.teaser {
-  &--content-header {
-    background: none !important;
-  }
-}
-
-.teaser {
-  &--type-read-more {
-    a {
-      color: $link-color-alt;
+.teaser--list {
+  .teaser {
+    &--content-header {
+      background: none !important;
     }
 
-    a:hover {
-      color: $link-color-hover-alt;
+    header a {
+      &:link,
+      &:visited,
+      &:focus,
+      &:active {
+        color: $link-color-alt !important;
+      }
+      &:hover {
+        color: $link-color-hover-alt !important;
+      }
     }
   }
 }
@@ -336,17 +338,14 @@ a:focus {
 }
 
 .tabs li {
-  a:link {
-    color: $link-color-alt !important;
-  }
-  a:visited {
-    color: $link-color-alt !important;
-  }
-  a:hover {
-    color: $link-color-alt !important;
-  }
-  a:active {
-    color: $link-color-alt !important;
+  a {
+    &:link,
+    &:visited,
+    &:focus,
+    &:hover,
+    &:active {
+      color: $link-color-alt !important;
+    }
   }
 }
 
