@@ -617,6 +617,17 @@ html.mm-opened{
   }
 }
 
+.ribbon {
+  a {
+    color: $white !important;
+    &:link,
+    &:visited,
+    &:hover {
+      color: $white !important;
+    }
+  }
+}
+
 html.js {
   .comment-form--trigger {
     background: #fff;
