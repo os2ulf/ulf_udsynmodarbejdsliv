@@ -16,6 +16,12 @@ body {
   background: $udsyn_background;
 }
 
+li {
+  a:visited {
+    color: red;
+  }
+}
+
 a {
   &:link {
     color: $link-color-alt;
@@ -124,6 +130,21 @@ body {
   background: $udsyn_background !important;
 }
 
+.paragraphs-items {
+  ul {
+    li {
+      a {
+        &:visited {
+          color: $link-color-alt !important;
+        }
+        &:hover {
+          color: $link-color-hover-alt !important;
+        }
+      }
+    }
+  }
+}
+
 .content:not(.is-internship, .is-education) {
   color: $black;
   &.block--light,
@@ -132,6 +153,7 @@ body {
     color: $black;
     a {
       color: $link-color-alt !important;
+      &:visited,
       &:hover {
         color: $link-color-hover-alt !important;
       }
@@ -358,13 +380,29 @@ a:focus {
 .toolbar-drawer,
 .toolbar-menu,
 .header {
-  z-index: 100;
   a {
     &:visited {
       color: $white !important;
     }
   }
 }
+
+.header {
+  background: url(../images/header-bg.png) repeat-x 0 0;
+  height: 85px;
+
+  @include breakpoint(45em) {
+    height: 160px;
+  }
+
+  &--toggle-mobile-nav {
+    background: none;
+  }
+
+  z-index: 100;
+
+}
+
 .header--inner {
 
   #menu-trigger {
@@ -400,6 +438,7 @@ a:focus {
     }
   }
 }
+
 .header--nav-wrapper {
   position: absolute;
   top: 50%;
@@ -412,6 +451,7 @@ a:focus {
     display: block;
   }
 }
+
 html.mm-opened{
   #menu-trigger{
     span{
@@ -445,8 +485,10 @@ html.mm-opened{
       background-color: #666;
     }
     a {
-      color: #fff;
+      color: $white;
+      &:visited,
       &:hover {
+        color: $white;
         background: none;
       }
     }
@@ -475,9 +517,11 @@ html.mm-opened{
     }
   }
 }
+
 .header--logo {
   display: block;
   left: 20px;
+  max-width: 9em;
   img {
     width: 60px;
     height: auto;
