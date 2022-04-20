@@ -171,3 +171,4 @@
 <script async type="text/javascript" src="//pagecorrect.monsido.com/v1/page-correct.js"></script>
 <script async type="text/javascript" src="//heatmaps.monsido.com/v1/heatmaps.js"></script>
 <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="DA" type="text/javascript"></script>
+<script async src=https://siteimproveanalytics.com/js/siteanalyze_2240844.js></script>
