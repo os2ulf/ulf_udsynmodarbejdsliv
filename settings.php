@@ -593,7 +593,7 @@ $conf['404_fast_html'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
 ////  }
 ////}
 
-  $base_url = 'https://udsynmodarbejdsliv.dk.develop-sr3snxi-ti4ifpbxl6ymg.eu-2.platformsh.site';
+//  $base_url = 'https://udsynmodarbejdsliv.dk.develop-sr3snxi-ti4ifpbxl6ymg.eu-2.platformsh.site';
   $conf['search_api_search_node_host'] = 'https://search-node.udsynmodarbejdsliv.dk.develop-sr3snxi-ti4ifpbxl6ymg.eu-2.platformsh.site';
   $conf['search_api_search_node_apikey'] = 'b20a8b2c827d7d2acbdce6d8836313fc';
   $conf['search_api_search_node_apikey_readonly'] = '0c78a42f2865ab68d5ea65e369ecaabb';
