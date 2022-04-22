@@ -289,6 +289,8 @@ body {
   }
 }
 
+
+
 .is-internship {
   .field--collection-label {
     background: $medium-green;
@@ -332,6 +334,17 @@ body {
     background: $medium-blue;
     border-color: $medium-blue;
   }
+  a {
+    &:link,
+    &:visited,
+    &:focus,
+    &:active {
+      color: $link-color-alt !important;
+    }
+    &:hover {
+      color: $link-color-hover-alt !important;
+    }
+  }
 }
 
 .page-nyheder {
@@ -358,6 +371,38 @@ body {
     padding: 0 1em;
     box-sizing: border-box;
 
+  }
+}
+
+.entity-paragraphs-item {
+  p {
+    a {
+      &:link,
+      &:visited,
+      &:focus,
+      &:active {
+        color: $link-color-alt !important;
+      }
+      &:hover {
+        color: $link-color-hover-alt !important;
+      }
+    }
+  }
+}
+
+.field--collection-content {
+  .field--collection-description {
+    a {
+      &:link,
+      &:visited,
+      &:focus,
+      &:active {
+        color: $link-color-alt !important;
+      }
+      &:hover {
+        color: $link-color-hover-alt !important;
+      }
+    }
   }
 }
 
