@@ -212,6 +212,10 @@ body {
       background: $medium-green !important;
     }
 
+    a:visited {
+      color: $link-color-alt !important;
+    }
+
     a:link {
       color: $link-color-alt !important;
     }
@@ -446,6 +450,7 @@ a:focus {
 
 }
 
+.block--content,
 .block--field-text {
   a {
     &:link,

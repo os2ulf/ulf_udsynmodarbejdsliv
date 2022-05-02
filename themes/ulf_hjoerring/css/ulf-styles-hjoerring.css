@@ -558,6 +558,10 @@ body {
   background: #a6bcb2 !important;
 }
 
+.is-internship .block--dark a:visited {
+  color: #304c59 !important;
+}
+
 .is-internship .block--dark a:link {
   color: #304c59 !important;
 }
@@ -742,10 +746,15 @@ a:focus {
   background: none;
 }
 
-.block--field-text a:link, .block--field-text a:visited, .block--field-text a:focus, .block--field-text a:active {
+.block--content a:link, .block--content a:visited, .block--content a:focus, .block--content a:active,
+.block--field-text a:link,
+.block--field-text a:visited,
+.block--field-text a:focus,
+.block--field-text a:active {
   color: #304c59 !important;
 }
 
+.block--content a:hover,
 .block--field-text a:hover {
   color: #788b93 !important;
 }
