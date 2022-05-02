@@ -422,9 +422,7 @@ a:focus {
   }
 }
 
-.toolbar-drawer,
-.toolbar-menu,
-.header {
+.toolbar-drawer {
   a {
     &:visited {
       color: $white !important;
@@ -446,6 +444,20 @@ a:focus {
 
   z-index: 100;
 
+}
+
+.block--field-text {
+  a {
+    &:link,
+    &:visited,
+    &:focus,
+    &:active {
+      color: $link-color-alt !important;
+    }
+    &:hover {
+      color: $link-color-hover-alt !important;
+    }
+  }
 }
 
 .header--inner {
@@ -678,6 +690,20 @@ html.mm-opened{
       background-color: $dark-coral;
       a, span {
         background-color: $dark-coral;
+      }
+    }
+  }
+}
+
+.text {
+  &__cta {
+    a {
+      &:link,
+      &:visited,
+      &:focus,
+      &:active,
+      &:hover {
+        color: $white !important;
       }
     }
   }

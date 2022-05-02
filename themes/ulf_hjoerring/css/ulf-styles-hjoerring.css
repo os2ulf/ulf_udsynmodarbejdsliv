@@ -82,7 +82,7 @@
 
 .form-submit:visited,
 .button:visited {
-  color: black;
+  color: #faf6e9;
   text-decoration: none;
 }
 
@@ -450,7 +450,7 @@ body {
 }
 
 .block--light a:visited {
-  color: black;
+  color: #5d97d1;
   text-decoration: underline;
 }
 
@@ -472,7 +472,7 @@ body {
 
 .block--pdf-link:visited,
 .block--signup-link:visited {
-  color: black;
+  color: #faf6e9;
   text-decoration: none;
 }
 
@@ -706,11 +706,11 @@ body {
   color: #788b93 !important;
 }
 
-block--field-text a:link, block--field-text a:visited, block--field-text a:focus, block--field-text a:active {
+.field--collection-content .field--collection-description a:link, .field--collection-content .field--collection-description a:visited, .field--collection-content .field--collection-description a:focus, .field--collection-content .field--collection-description a:active {
   color: #304c59 !important;
 }
 
-block--field-text a:hover {
+.field--collection-content .field--collection-description a:hover {
   color: #788b93 !important;
 }
 
@@ -722,9 +722,7 @@ a:focus {
   color: #304c59 !important;
 }
 
-.toolbar-drawer a:visited,
-.toolbar-menu a:visited,
-.header a:visited {
+.toolbar-drawer a:visited {
   color: #faf6e9 !important;
 }
 
@@ -742,6 +740,14 @@ a:focus {
 
 .header--toggle-mobile-nav {
   background: none;
+}
+
+.block--field-text a:link, .block--field-text a:visited, .block--field-text a:focus, .block--field-text a:active {
+  color: #304c59 !important;
+}
+
+.block--field-text a:hover {
+  color: #788b93 !important;
 }
 
 .header--inner #menu-trigger {
@@ -1057,6 +1063,10 @@ html.mm-opened #menu-trigger span:nth-child(3) {
 .page-uddannelse-og-job .page--wrapper .pagination .active a,
 .page-uddannelse-og-job .page--wrapper .pagination .active span {
   background-color: #bf0d03;
+}
+
+.text__cta a:link, .text__cta a:visited, .text__cta a:focus, .text__cta a:active, .text__cta a:hover {
+  color: #faf6e9 !important;
 }
 
 .block--dark,
