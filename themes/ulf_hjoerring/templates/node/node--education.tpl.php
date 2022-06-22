@@ -93,7 +93,7 @@
             <?php if ($field_free ['und']['0']['value'] == 1): ?>
                 <div class="ribbon-wrapper left is-content">
                     <div class="ribbon is-content">
-                        <div class="ribbon--education is-content"><?php print 'gratis'; ?></div>
+                        <div class="ribbon--education is-content"><?php print 'Gratis'; ?></div>
                     </div>
                 </div>
             <?php endif;?>
