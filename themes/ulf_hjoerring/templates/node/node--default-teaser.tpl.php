@@ -88,14 +88,13 @@
         </div>
       </div>
     <?php else: ?>
-      <?php if (isset($content['field_free'])) : ?>
-        <?php if ($field_free ['und']['0']['value'] == 1): ?>
-          <div class="ribbon-wrapper left">
-            <div class="ribbon">
-              <a href="/node/<?php print $nid; ?>"><?php print 'Gratis'; ?></a>
-            </div>
+
+      <?php if ($field_free ['und']['0']['value'] == 1): ?>
+        <div class="ribbon-wrapper left">
+          <div class="ribbon">
+            <a href="/node/<?php print $nid; ?>"><?php print 'Gratis'; ?></a>
           </div>
-        <?php endif;?>
+        </div>
       <?php endif;?>
     <?php endif;?>
   <?php endif;?>
