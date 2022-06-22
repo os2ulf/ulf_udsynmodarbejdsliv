@@ -107,7 +107,7 @@
         <!--          </div>-->
         <!--        </div>-->
         <!--    --><?php //endif;?>
-        <?php if ($content['field_free']['#items']['0']['value'] == 1) : ?>
+        <?php if ($field_free ['und']['0']['value'] == 1): ?>
             <div class="ribbon-wrapper left">
                 <div class="ribbon">
                     <a href="/node/<?php print $nid; ?>"><?php print 'Gratis'; ?></a>
