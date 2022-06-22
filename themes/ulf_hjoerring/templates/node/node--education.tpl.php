@@ -89,20 +89,15 @@
       <?php endif; ?>
       <div class="content is-education">
         <div class="content--image">
-<!--          --><?php //if (isset($garantipartner) && $garantipartner == 1) : ?>
-<!--            <div class="ribbon-wrapper left is-content">-->
-<!--              <div class="ribbon is-content">-->
-<!--                <div class="ribbon--education is-content">--><?php //print t('Garantipartner'); ?><!--</div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          --><?php //endif;?>
-          <?php if ($content['field_free']['#items']['0']['value'] == 1) : ?>
-            <div class="ribbon-wrapper left is-content">
-              <div class="ribbon is-content">
-                <div class="ribbon--education is-content"><?php print 'Gratis'; ?></div>
-              </div>
-            </div>
-          <?php endif;?>
+
+            <?php if ($field_free ['und']['0']['value'] == 1): ?>
+                <div class="ribbon-wrapper left is-content">
+                    <div class="ribbon is-content">
+                        <div class="ribbon--education is-content"><?php print 'gratis'; ?></div>
+                    </div>
+                </div>
+            <?php endif;?>
+
           <h1 class="field--title is-education"><?php print render($title); ?></h1>
           <?php print render($content['field_image']); ?>
         </div>
