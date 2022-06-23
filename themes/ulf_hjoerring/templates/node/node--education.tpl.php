@@ -227,7 +227,7 @@
                                         <?php endif; ?>
                                     <?php endif;?>
                                     <?php /* 'und' part of field_free is used for pdf displays  */ ?>
-                                    <?php if ($field_free ['und']['0']['value'] == 0 || $field_collection_price) : ?>
+                                    <?php if ((isset($field_free['0']) && $field_free['0']['value'] == 0 ) || (isset($field_free['und']) && $field_free['und']['0'] && $field_free['und']['0']['value'] == 0 )) : ?>
                                         <div class="block--field-label"><?php print t('Price');?></div>
                                         <?php print render($content['field_collection_price']); ?>
                                     <?php else : ?>
