@@ -30,6 +30,10 @@ function ulf_hjoerring_preprocess_node(&$variables) {
     $variables['newsletter_subscription_form'] = $block;
     $variables['theme_hook_suggestions'][]='node__nyhedsbrev';
   }
+
+  if(isset($variables['content']['field_purpose'])) {
+    $variables['content']['field_purpose']['#title'] = 'Mål';
+  }
 }
 
 
@@ -46,8 +50,3 @@ function ulf_hjoerring_preprocess_comment(&$variables) {
  *
  * @param $variables
  */
-function ulf_udsynmodarbejdsliv_preprocess_node(&$variables) {
-    if(isset($variables['content']['field_purpose'])) {
-        $variables['content']['field_purpose']['#title'] = 'Mål';
-    }
-}
