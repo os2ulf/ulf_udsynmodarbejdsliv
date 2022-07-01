@@ -39,3 +39,15 @@ function ulf_hjoerring_preprocess_node(&$variables) {
 function ulf_hjoerring_preprocess_comment(&$variables) {
   unset($variables['content']['links']['comment']['#links']['comment-reply']);
 }
+
+/**
+ * We need to the label like this. Else it will be overwritten by the feature
+ * Handling the "course" content-type.
+ *
+ * @param $variables
+ */
+function ulf_udsynmodarbejdsliv_preprocess_node(&$variables) {
+    if(isset($variables['content']['field_purpose'])) {
+        $variables['content']['field_purpose']['#title'] = 'Mål';
+    }
+}
