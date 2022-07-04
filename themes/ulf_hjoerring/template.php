@@ -32,7 +32,7 @@ function ulf_hjoerring_preprocess_node(&$variables) {
   }
 
   if(isset($variables['content']['field_purpose'])) {
-    $variables['content']['field_purpose']['#title'] = 'Mål';
+    $variables['content']['field_purpose']['#title'] = 'Forventninger';
   }
 }
 
