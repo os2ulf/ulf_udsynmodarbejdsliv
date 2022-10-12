@@ -88,36 +88,6 @@
       </div>
     </div>
 
-    <div id={{id}} data-ng-class="toggleFilterClasses[id][0]"
-         class="search--filter-wrapper"
-         data-ng-repeat="id in ['field_competencies']">
-      <div class="search--filter-wrapper-inner">
-        <div class="search--filter-list">
-          <div class="search--filter-label" data-ng-click="openFilter(id)">{{ filters.taxonomy[id].name }}</div>
-          <div class="search--filter-dropdown"
-               data-ng-class="toggleFilterClasses[id][1]">
-            <div class="search--filter-dropdown-inner">
-              <div class="search--filter-dropdown-header" data-ng-click="openFilter(id)">{{ filters.taxonomy[id].name }} <span class="search--filter-dropdown-header-close"><img src="/profiles/ulf/themes/ulf_default/images/close.svg"></span>
-              </div>
-              <div class="search--filter-dropdown-content">
-                <div class="search--filter-dropdown-content--query">
-                  <input id="competencies--query-string" placeholder="Filtrér liste" type="text" data-ng-model="filterCompetencies">
-                </div>
-                <br>
-                <div data-ng-repeat="item in competenciesItems = (filters.taxonomy[id].items | toArray | filter: greaterThan('count', 0) | filter: { value: filterCompetencies })">
-                  <input id="{{ item.value }}" data-ng-click="searchClicked()" type="checkbox"
-                         data-ng-model="query.filters.taxonomy[id][item.value]">
-                  <label for="{{ item.value }}">{{ item.value }}</label>
-                </div>
-                <p ng-hide="competenciesItems.length">Ingen resultater</p>
-              </div>
-              <div class="search--filter-dropdown-submit" data-ng-click="openFilter(id)">Anvend</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
 <!--    <div class="search&#45;&#45;filter-wrapper visible-lg">-->
 <!--      <div class="search&#45;&#45;filter-wrapper-inner">-->
 <!--        <div class="search&#45;&#45;filter-list">-->
