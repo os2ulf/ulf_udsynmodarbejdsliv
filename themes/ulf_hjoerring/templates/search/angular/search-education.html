@@ -63,7 +63,7 @@
     <!-- Search filters -->
     <div id={{id}} data-ng-class="toggleFilterClasses[id][0]"
          class="search--filter-wrapper"
-         data-ng-repeat="id in ['author:field_branche', 'field_target_group_sub', 'field_subjects_primary_school']">
+         data-ng-repeat="id in ['field_offer_type_udsyn', 'field_subject_udsyn', 'field_subjects_primary_school', 'field_target_group_sub']">
       <div class="search--filter-wrapper-inner">
         <div class="search--filter-list">
           <div class="search--filter-label" data-ng-click="openFilter(id)">{{ filters.taxonomy[id].name }}</div>
