@@ -189,161 +189,156 @@
                     <?php print render($content['comments']); ?>
                 </div>
                 <div class="content--meta">
-                <div class="block--light">
-                    <h2 class="block--header">
-                    <?php print t('Practical information'); ?>
-                    </h2>
-                    <div class="block--content">
-                    <div class="block--field-wrapper">
-                        <div class="block--field-label"><?php print t('Provider');?></div>
-                        <p><a href="/user/<?php print $uid; ?>"><?php print $profile_name; ?></a></p>
-                    </div>
-                    <div class="block--field-wrapper is-inline">
-                        <?php print render($content['field_offer_type']); ?>
-                        <?php if (!empty($view__target_group_sub)) : ?>
-                        <div class="block--field-label"><?php print t('Target group');?></div>
-                        <div class="block--field-text"><?php print render($view__target_group_sub); ?></div>
-                        <?php endif;?>
-                    </div>
-                    <?php /* If any of the fields in this wrapper contain data */ ?>
-                    <?php print render($content['field_count']); ?>
-                    <?php print render($content['field_count_description']); ?>
-                    <?php if ($field_duration || $field_period_full_year['0']['value'] == 0 || $field_collection_price || (isset($field_free['0']) && $field_free['0']['value'] == 1) || $field_price_description || $field_duration_description || $field_period_info) : ?>
-                        <div class="block--field-wrapper">
-                        <?php if ($field_period_full_year['0']['value'] == 0) : ?>
-                            <?php print render($content['field_period']); ?>
-                        <?php else : ?>
-                            <div class="block--field-label"><?php print t('Periode');?></div>
-                            <div class="block--field-text"><?php print t('All year');?></div>
-                        <?php endif;?>
-                        <?php print render($content['field_period_info']); ?>
-                        <?php if ($field_duration || $field_duration_description) : ?>
-                            <div class="block--field-label"><?php print t('Duration');?></div>
-                            <?php if ($field_duration) : ?>
-                            <div class="block--field-text"><?php print $stripped_duration; ?><?php print render($content['field_duration_unit']); ?></div>
-                            <?php endif; ?>
-                            <?php if ($field_duration_description) : ?>
-                            <div class="block--field-text"><?php print render($content['field_duration_description']); ?></div>
-                            <?php endif; ?>
-                        <?php endif;?>
-                        <?php /* 'und' part of field_free is used for pdf displays  */ ?>
-                        <?php if ((isset($field_free['0']) && $field_free['0']['value'] == 0) || (isset($field_free['und']) && $field_free['und']['0'] && $field_free['und']['0']['value'] == 0)) : ?>
-                            <div class="block--field-label"><?php print t('Price');?></div>
-                            <?php print render($content['field_collection_price']); ?>
-                        <?php else : ?>
-                            <div class="block--field-label"><?php print t('This course is free.');?></div>
-                        <?php endif;?>
-                        <?php if ($field_price_description) : ?>
-                            <div class="block--field-text"><?php print render($content['field_price_description']); ?></div>
-                        <?php endif; ?>
-                        </div>
-                    <?php endif;?>
-                    <?php /* If any of the fields in this wrapper contain data */ ?>
-                    <?php if ($field_subject) : ?>
-                        <div class="block--field-wrapper">
-                        <?php print render($content['field_subject']); ?>
-                        </div>
-                    <?php endif;?>
-                    <?php if ($field_educational_goals || $field_subjects_primary_school || $field_subjects_youth) : ?>
-                        <div class="block--field-wrapper">
-                        <?php print render($content['field_educational_goals']); ?>
-                        <?php print render($content['field_subjects_primary_school']); ?>
-                        <?php print render($content['field_subjects_youth']); ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($field_facilities || $field_facilities_info) : ?>
-                        <div class="block--field-wrapper">
-                        <?php print render($content['field_facilities']); ?>
-                        <?php print render($content['field_facilities_info']); ?>
-                        </div>
-                    <?php endif; ?>
-                    </div>
-
-                    <?php if (module_exists('ulf_world_targets') && isset($world_targets)) : ?>
-                    <div class="block--field-wrapper">
-                        <?php print $world_targets; ?>
-                    </div>
-                    <?php endif;?>
-
-                </div>
-                    <?php if ($practical_info_buttons): ?>
-                        <div class="block--field-wrapper block--buttons">
-                        <?php foreach ($practical_info_buttons as $button): ?>
-                            <?php print $button ?>
-                        <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
-                <?php if (module_exists('transportpulje_form') && $group_type != 'ungdomsuddannelse') : ?>
-                    <?php if (!empty($field_tpf_exclude)) : ?>
-                    <?php if ($field_tpf_exclude[LANGUAGE_NONE]['0']['value'] != 1) : ?>
-                        <div class="block--dark block--transport-request-link">
+                    <div class="block--light coral">
                         <h2 class="block--header">
-                            <?php print t('Transport');?>
+                            <?php print t('Practical information'); ?>
                         </h2>
                         <div class="block--content">
-                            <div class="block--field-text"><?php print t('Create an application to request funding from the transport pool to attend this course'); ?></div>
+                            <div class="block--field-wrapper">
+                                <div class="block--field-label"><?php print t('Provider');?></div>
+                                <p><a href="/user/<?php print $uid; ?>"><?php print $profile_name; ?></a></p>
+                            </div>
+                            <div class="block--field-wrapper is-inline">
+                                <?php print render($content['field_offer_type_udsyn']); ?>
+                                <?php if (!empty($view__target_group_sub)) : ?>
+                                    <div class="block--field-label"><?php print t('Target group');?></div>
+                                    <div class="block--field-text"><?php print render($view__target_group_sub); ?></div>
+                                <?php endif;?>
+                            </div>
+                            <?php /* If any of the fields in this wrapper contain data */ ?>
+                            <?php print render($content['field_count']); ?>
+                            <?php print render($content['field_count_description']); ?>
+                            <?php if ($field_duration || $field_period_full_year['0']['value'] == 0 || $field_collection_price || (isset($field_free['0']) && $field_free['0']['value'] == 1) || $field_price_description || $field_duration_description || $field_period_info) : ?>
+                                <div class="block--field-wrapper">
+                                    <?php if ($field_period_full_year['0']['value'] == 0) : ?>
+                                        <?php print render($content['field_period']); ?>
+                                    <?php else : ?>
+                                        <div class="block--field-label"><?php print t('Periode');?></div>
+                                        <div class="block--field-text"><?php print t('All year');?></div>
+                                    <?php endif;?>
+                                    <?php print render($content['field_period_info']); ?>
+                                    <?php if ($field_duration || $field_duration_description) : ?>
+                                        <div class="block--field-label"><?php print t('Duration');?></div>
+                                        <?php if ($field_duration) : ?>
+                                            <div class="block--field-text"><?php print $stripped_duration; ?><?php print render($content['field_duration_unit']); ?></div>
+                                        <?php endif; ?>
+                                        <?php if ($field_duration_description) : ?>
+                                            <div class="block--field-text"><?php print render($content['field_duration_description']); ?></div>
+                                        <?php endif; ?>
+                                    <?php endif;?>
+                                    <?php /* 'und' part of field_free is used for pdf displays  */ ?>
+                                    <?php if ((isset($field_free['0']) && $field_free['0']['value'] == 0) || (isset($field_free['und']) && $field_free['und']['0'] && $field_free['und']['0']['value'] == 0)) : ?>
+                                        <div class="block--field-label"><?php print t('Price');?></div>
+                                        <?php print render($content['field_collection_price']); ?>
+                                    <?php else : ?>
+                                        <div class="block--field-label"><?php print t('This course is free.');?></div>
+                                    <?php endif;?>
+                                    <?php if ($field_price_description) : ?>
+                                        <div class="block--field-text"><?php print render($content['field_price_description']); ?></div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif;?>
+                            <?php /* If any of the fields in this wrapper contain data */ ?>
+                            <?php if ($field_subject_udsyn) : ?>
+                                <div class="block--field-wrapper">
+                                    <?php print render($content['field_subject_udsyn']); ?>
+                                </div>
+                            <?php endif;?>
+                            <?php if ($field_subjects_primary_school || $field_competencies) : ?>
+                                <div class="block--field-wrapper">
+                                    <?php print render($content['field_subjects_primary_school']); ?>
+                                    <?php print render($content['field_competencies']); ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($field_facilities || $field_facilities_info) : ?>
+                                <div class="block--field-wrapper">
+                                    <?php print render($content['field_facilities']); ?>
+                                    <?php print render($content['field_facilities_info']); ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (isset($node->field_fivestar_rating) && $node->field_fivestar_rating['und'][0]['count'] > 0): ?>
+                                <div class="block--field-wrapper education-rating">
+                                    <?php print render($content['field_fivestar_rating']); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <?php if (module_exists('ulf_world_targets') && isset($world_targets)) : ?>
+                            <div class="block--field-wrapper">
+                                <?php print $world_targets; ?>
+                            </div>
+                        <?php endif;?>
+                    </div>
+                    <?php if (module_exists('transportpulje_form') && $group_type != 'ungdomsuddannelse') : ?>
+                        <?php if (!empty($field_tpf_exclude)) : ?>
+                            <?php if ($field_tpf_exclude[LANGUAGE_NONE]['0']['value'] != 1) : ?>
+                                <div class="block--dark coral block--transport-request-link">
+                                    <h2 class="block--header">
+                                        <?php print t('Transport');?>
+                                    </h2>
+                                    <div class="block--content">
+                                        <div class="block--field-text"><?php print t('Create an application to request funding from the transport pool to attend this course'); ?></div>
+                                        <p>
+                                            <a target="_blank" href="/transport_application?course_id=<?php print $nid; ?>"><?php print t('Create transport application'); ?></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php else : ?>
+                            <div class="block--dark coral block--transport-request-link">
+                                <h2 class="block--header">
+                                    <?php print t('Transport');?>
+                                </h2>
+                                <div class="block--content">
+                                    <div class="block--field-text"><?php print t('Create an application to request funding from the transport pool to attend this course'); ?></div>
+                                    <p>
+                                        <a target="_blank" href="/transport_application?course_id=<?php print $nid; ?>"><?php print t('Create transport application'); ?></a>
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <div class="block--dark coral">
+                        <h2 class="block--header">
+                            <?php print t('Contact provider');?>
+                        </h2>
+                        <div class="block--content">
+                            <div class="block--field-label"><?php print $profile_name; ?></div>
+                            <div class="block--field-text"><?php print $profile_address; ?></div>
+                            <div class="block--field-text"><?php print $profile_postal_code; ?> <?php print $profile_city; ?></div>
+                            <br>
+                            <?php if (isset($profile_phone)) : ?>
+                                <div class="block--field-text">
+                                    <p>
+                                        <?php print t('Phone')?> <?php print $profile_phone; ?>
+                                    </p>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($field_message_form) : ?>
+                                <p>
+                                    <button class="block--modal-link js-toggle-modal modal--open"><?php print t('Contact organizer'); ?></button>
+                                </p>
+                            <?php endif; ?>
                             <p>
-                            <a target="_blank" href="/transport_application?course_id=<?php print $nid; ?>"><?php print t('Create transport application'); ?></a>
+                                <a href="/user/<?php print $uid ?>"><?php print t('View organizer profile'); ?></a>
                             </p>
                         </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php else : ?>
-                    <div class="block--dark block--transport-request-link">
-                        <h2 class="block--header">
-                        <?php print t('Transport');?>
-                        </h2>
-                        <div class="block--content">
-                        <div class="block--field-text"><?php print t('Create an application to request funding from the transport pool to attend this course'); ?></div>
-                        <p>
-                            <a target="_blank" href="/transport_application?course_id=<?php print $nid; ?>"><?php print t('Create transport application'); ?></a>
-                        </p>
-                        </div>
                     </div>
-                    <?php endif; ?>
-                <?php endif; ?>
-                <div class="block--dark">
-                    <h2 class="block--header">
-                    <?php print t('Contact organizer');?>
-                    </h2>
-                    <div class="block--content">
-                    <div class="block--field-label"><?php print $profile_name; ?></div>
-                    <div class="block--field-text"><?php print $profile_address; ?></div>
-                    <div class="block--field-text"><?php print $profile_postal_code; ?> <?php print $profile_city; ?></div>
-                    <br>
-                    <?php if (isset($profile_phone)) : ?>
-                        <div class="block--field-text">
-                        <p>
-                            <?php print t('Phone')?> <?php print $profile_phone; ?>
-                        </p>
-                        </div>
-                    <?php endif; ?>
                     <?php if ($field_message_form) : ?>
-                    <p>
-                        <button class="block--modal-link js-toggle-modal modal--open"><?php print t('Contact organizer'); ?></button>
-                    </p>
-                    <?php endif; ?>
-                    <p>
-                        <a href="/user/<?php print $uid ?>"><?php print t('View organizer profile'); ?></a>
-                    </p>
-                    </div>
-                </div>
-                <?php if ($field_message_form) : ?>
-                    <div class="block--light is-form">
-                    <div class="is-modal js-modal js-toggle-modal"></div>
-                    <div class="modal--wrapper js-modal-dialog">
-                        <div class="modal--close js-toggle-modal"><img src="/profiles/ulf/themes/ulf_default/images/close.svg"></div>
-                        <h2 class="block--header modal--header">
-                        <?php print t('Send message to') . ' ' . $profile_name; ?>
-                        </h2>
-                        <?php if (isset($content['field_message_form'])): ?>
-                        <div class="block--content">
-                        <?php print render($content['field_message_form']); ?>
+                        <div class="block--light coral is-form">
+                            <div class="is-modal js-modal js-toggle-modal"></div>
+                            <div class="modal--wrapper js-modal-dialog">
+                                <div class="modal--close js-toggle-modal"><img src="/profiles/ulf/themes/ulf_default/images/close.svg"></div>
+                                <h2 class="block--header modal--header">
+                                    <?php print t('Send message to') . ' ' . $profile_name; ?>
+                                </h2>
+                                <?php if (isset($content['field_message_form'])): ?>
+                                    <div class="block--content">
+                                        <?php print render($content['field_message_form']); ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
-                        <?php endif; ?>
-                    </div>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php
