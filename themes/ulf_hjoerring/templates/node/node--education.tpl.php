@@ -117,7 +117,7 @@
                             <div class="field--collection-label"><?php print t('Place');?></div>
                             <div class="field--collection-content">
                                 <div class="field--collection-item">
-                                    <?php if ($field_map_placement['und']['0']['value'] == 'alternative' ) : ?>
+                                    <?php if ($field_map_placement['und']['0']['value'] == 'alternative') : ?>
                                         <?php if (!empty($location['name'])) : ?>
                                             <div><?php print $location['name'] ?></div>
                                         <?php endif; ?>
@@ -149,7 +149,7 @@
                         </div>
                     <?php endif; ?>
                     <?php print render($content['field_educational_material']); ?>
-                    <?php if ($field_last_signup_date || $field_signup_link || $field_signup_email || $field_signup_phone || $field_signup_description ) : ?>
+                    <?php if ($field_last_signup_date || $field_signup_link || $field_signup_email || $field_signup_phone || $field_signup_description) : ?>
                         <div class="field--collection-wrapper">
                             <div class="field--collection-label"><?php print t('Signup');?></div>
                             <div class="field--collection-content">
@@ -199,6 +199,13 @@
                                 <p><a href="/user/<?php print $uid; ?>"><?php print $profile_name; ?></a></p>
                             </div>
                             <div class="block--field-wrapper is-inline">
+                            <?php print render($content['field_offer_type_udsyn']); ?>
+                            <?php if (!empty($view__target_group_sub)) : ?>
+                                <div class="block--field-label"><?php print t('Target group');?></div>
+                                <div class="block--field-text"><?php print render($view__target_group_sub); ?></div>
+                            <?php endif;?>
+                            </div>
+                            <div class="block--field-wrapper is-inline">
                                 <?php print render($content['field_offer_type']); ?>
                                 <?php if (!empty($view__target_group_sub)) : ?>
                                     <div class="block--field-label"><?php print t('Target group');?></div>
@@ -208,9 +215,9 @@
                             <?php /* If any of the fields in this wrapper contain data */ ?>
                             <?php print render($content['field_count']); ?>
                             <?php print render($content['field_count_description']); ?>
-                            <?php if ($field_duration || $field_period_full_year['0']['value'] == 0 || $field_collection_price || (isset($field_free['0']) && $field_free['0']['value'] == 1) || $field_price_description || $field_duration_description || $field_period_info ) : ?>
+                            <?php if ($field_duration || $field_period_full_year['0']['value'] == 0 || $field_collection_price || (isset($field_free['0']) && $field_free['0']['value'] == 1) || $field_price_description || $field_duration_description || $field_period_info) : ?>
                                 <div class="block--field-wrapper">
-                                    <?php if ($field_period_full_year['0']['value'] == 0 ) : ?>
+                                    <?php if ($field_period_full_year['0']['value'] == 0) : ?>
                                         <?php print render($content['field_period']); ?>
                                     <?php else : ?>
                                         <div class="block--field-label"><?php print t('Periode');?></div>
@@ -227,7 +234,7 @@
                                         <?php endif; ?>
                                     <?php endif;?>
                                     <?php /* 'und' part of field_free is used for pdf displays  */ ?>
-                                    <?php if ((isset($field_free['0']) && $field_free['0']['value'] == 0 ) || (isset($field_free['und']) && $field_free['und']['0'] && $field_free['und']['0']['value'] == 0 )) : ?>
+                                    <?php if ((isset($field_free['0']) && $field_free['0']['value'] == 0) || (isset($field_free['und']) && $field_free['und']['0'] && $field_free['und']['0']['value'] == 0)) : ?>
                                         <div class="block--field-label"><?php print t('Price');?></div>
                                         <?php print render($content['field_collection_price']); ?>
                                     <?php else : ?>
@@ -239,6 +246,11 @@
                                 </div>
                             <?php endif;?>
                             <?php /* If any of the fields in this wrapper contain data */ ?>
+                            <?php if ($field_subject_udsyn) : ?>
+                                <div class="block--field-wrapper">
+                                    <?php print render($content['field_subject_udsyn']); ?>
+                                </div>
+                            <?php endif;?>
                             <?php if ($field_subjects_primary_school || $field_competencies) : ?>
                                 <div class="block--field-wrapper">
                                     <?php print render($content['field_subjects_primary_school']); ?>
@@ -339,17 +351,17 @@
             <?php
             // We hide the comments and links now so that we can render them later.
             hide($content['field_registration_form']);
-            hide($content['field_target_group_sub']);
-            hide($content['field_duration']);
-            hide($content['field_duration_unit']);
-            hide($content['field_period']);
-            hide($content['field_collection_price']);
-            hide($content['field_free']);
-            hide($content['field_period_full_year']);
-            hide($content['field_pretix_date']);
-            hide($content['field_fivestar_rating']);
-            hide($content['comments']);
-            hide($content['links']); ?>
+hide($content['field_target_group_sub']);
+hide($content['field_duration']);
+hide($content['field_duration_unit']);
+hide($content['field_period']);
+hide($content['field_collection_price']);
+hide($content['field_free']);
+hide($content['field_period_full_year']);
+hide($content['field_pretix_date']);
+hide($content['field_fivestar_rating']);
+hide($content['comments']);
+hide($content['links']); ?>
         </div>
     </div>
 </div>
